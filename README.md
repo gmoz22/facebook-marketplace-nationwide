@@ -13,7 +13,7 @@ Video: https://www.youtube.com/watch?v=7EHPWzky5PM
 **Countries supported**
 * USA
 * Canada
+* Australia (credits @kylemd)
 
 **Roadmap**
 * Add Hawaii and Alaska as a checkbox option for USA
-* Add Australia
