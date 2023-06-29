@@ -5,15 +5,15 @@ URL: http://facebook-marketplace-nationwide-search.gmoz.biz/
 
 **How to use**
 1) You must be logged into Facebook it to work
-2) In FB Marketplace set radius to maximum amount of miles/kilometers
+2) Set your FB Marketplace settings to 500 miles/805kms by opening this link once: https://www.facebook.com/marketplace/la/search?&radius=805&deliveryMethod=local_pick_up
 3) Disable your popup blocker
 
-Video: https://www.youtube.com/watch?v=7EHPWzky5PM
+Video: https://youtu.be/mC5J9Ehcu0s
 
 **Countries supported**
-* USA
+* USA lower 48 / all 50 states
 * Canada
 * Australia (credits @kylemd)
 
 **Roadmap**
-* Add Hawaii and Alaska as a checkbox option for USA
+* Code and UI refactor
