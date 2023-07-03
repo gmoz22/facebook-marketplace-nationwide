@@ -33,4 +33,4 @@ yarn-error.log*
 .turbo
 
 .contentlayer
-.env
+.env.local

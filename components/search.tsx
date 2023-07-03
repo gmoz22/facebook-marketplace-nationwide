@@ -7,6 +7,9 @@ import {siteConfig} from "@/config/site";
 import {cn} from "@/lib/utils";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card"
 import Link from "next/link";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID);
 
 export default function Search() {
   const [searchTerm, setSearch] = useState("")
@@ -40,6 +43,12 @@ export default function Search() {
     for (let city of citiesFb) {
       window.open(siteConfig.templateURL.replace('|CITY|', city).replace('|STRING|', searchTerm), "fbmp"+country+"search"+city);
     }
+
+    ReactGA.event({
+      category: "search",
+      action: `search${country}`,
+      label: searchTerm
+    });
   }, [searchTerm, country]);
 
   return (

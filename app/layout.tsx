@@ -31,7 +31,7 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  ReactGA.initialize("G-DT9EJBG3SJ");
+  ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID);
 
   return (
     <>

@@ -23,13 +23,19 @@ npm i @radix-ui/react-popover
 npm i react-ga4
 ```
 
+In `.env`, add your GA4 ID
+```
+NEXT_PUBLIC_GA4_ANALYTICS_ID='YOUR_GA4_ID'
+```
+_Alternatively, override the variable via `.env.$(NODE_ENV).local.`, `.env.local` or `.env.$(NODE_ENV)` files where `$(NODE_ENV) = development | production | test`_
+
 In `app/layout.tsx`:
 ```
 import ReactGA from "react-ga4"
 ```
 Under `RootLayout()` add:
 ```
-ReactGA.initialize("your GA measurement id")
+ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID);
 ```
 
 ---
