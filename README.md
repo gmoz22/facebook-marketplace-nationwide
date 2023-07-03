@@ -1,22 +1,18 @@
-# next-template
+# facebook-marketplace-nationwide
+_Nationwide Facebook Marketplace search using the least amount of tabs possible._
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+**Homepage:** http://facebook-marketplace-nationwide-search.gmoz.biz/
 
-## Usage
+### How to use
 
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+You must be logged into Facebook, disable your ad/popup blockrs.
 
-## Features
+### Countries supported
 
-- Next.js 13 App Directory
-- Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
+* USA lower 48 / all 50 states
+* Canada
+* Australia (credits @kylemd)
+* Mexico
 
-## License
-
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+### Roadmap
+* Add more countries
