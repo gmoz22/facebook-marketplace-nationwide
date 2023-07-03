@@ -1,7 +1,8 @@
 # facebook-marketplace-nationwide
 _Nationwide Facebook Marketplace search using the least amount of tabs possible._
 
-**Homepage:** http://facebook-marketplace-nationwide-search.gmoz.biz/
+**Homepage:**
+<a href="http://facebook-marketplace-nationwide-search.gmoz.biz" target="_blank">http://facebook-marketplace-nationwide-search.gmoz.biz</a>
 
 ### How to use
 
