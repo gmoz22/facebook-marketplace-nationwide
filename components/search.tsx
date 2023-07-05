@@ -1,6 +1,6 @@
 'use client'
 
-import {ChangeEvent, KeyboardEvent, useCallback, useState} from 'react'
+import {ChangeEvent, KeyboardEvent, useCallback, useEffect, useState} from 'react'
 import {Input} from "@/components/ui/input";
 import {Button, ButtonProps} from "@/components/ui/button";
 import {siteConfig} from "@/config/site";
@@ -15,8 +15,19 @@ export default function Search() {
   const [searchTerm, setSearch] = useState("")
   const [country, setCountry] = useState("usa")
 
-  let countriesDataSet: { coverage: string; cities: string[]; cities_fb: string[]; name: string; icon: string }
-  const countriesData: { [index: string]: typeof countriesDataSet } = siteConfig.countries
+  interface CountriesDetails {
+    name: string;
+    icon: string;
+    locale: string;
+    cities: string[];
+    cities_fb: string[];
+    coverage: string;
+  }
+  interface Countries {
+    [key: string]: CountriesDetails
+  }
+
+  const countriesData: Countries = siteConfig.countries
 
   const updateSearchTerm = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,8 +51,9 @@ export default function Search() {
   const doSearch = useCallback(() => {
     if (searchTerm.trim() === "") return;
     let citiesFb = countriesData[country].cities_fb;
+    let locale: string = countriesData[country].locale;
     for (let city of citiesFb) {
-      window.open(siteConfig.templateURL.replace('|CITY|', city).replace('|STRING|', searchTerm), "fbmp"+country+"search"+city);
+      window.open(siteConfig.templateURL[locale as keyof typeof siteConfig.templateURL].replace('|CITY|', city).replace('|STRING|', searchTerm), "fbmp"+country+"search"+city);
     }
 
     ReactGA.event({

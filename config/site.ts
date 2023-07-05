@@ -14,11 +14,15 @@ export const siteConfig = {
     github: "https://github.com/gmoz22/facebook-marketplace-nationwide",
     fbmarketplace_settings: "https://www.facebook.com/marketplace/la/search?&radius=805&deliveryMethod=local_pick_up",
   },
-  templateURL: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=500&deliveryMethod=local_pick_up",
+  templateURL: {
+    miles: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=805&deliveryMethod=local_pick_up",
+    kms: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=500&deliveryMethod=local_pick_up",
+  },
   countries: {
     "usa": {
       "name": "USA (without AK or HI)",
       "icon": "usa_48.svg",
+      "locale": "miles",
       "cities": [
         "Portland, OR",
         "Los Angeles, CA",
@@ -44,6 +48,7 @@ export const siteConfig = {
     "usa_full": {
       "name": "USA",
       "icon": "usa.svg",
+      "locale": "miles",
       "cities": [
         "Portland, OR",
         "Los Angeles, CA",
@@ -79,6 +84,7 @@ export const siteConfig = {
     "can": {
       "name": "Canada",
       "icon": "canada.svg",
+      "locale": "kms",
       "cities": [
         "Saint Quentin, NB",
         "Baysville, ON",
@@ -106,6 +112,7 @@ export const siteConfig = {
     "aus": {
       "name": "Australia",
       "icon": "australia.svg",
+      "locale": "kms",
       "cities": [
         "Tamworth, NSW",
         "Deniliquin, NSW",
@@ -144,6 +151,7 @@ export const siteConfig = {
     "mex": {
       "name": "Mexico",
       "icon": "mexico.svg",
+      "locale": "kms",
       "cities": [
         "Irapuato,Guanajuato ",
         "Chapala, Jalisco",
