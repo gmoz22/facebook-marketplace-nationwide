@@ -58,7 +58,7 @@ export default function Search() {
 
     ReactGA.event({
       category: "search",
-      action: `search${country}`,
+      action: `search_${country}`,
       label: searchTerm
     });
   }, [searchTerm, country]);
