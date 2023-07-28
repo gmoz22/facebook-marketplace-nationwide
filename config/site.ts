@@ -18,6 +18,7 @@ export const siteConfig = {
     miles: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=805&deliveryMethod=local_pick_up",
     kms: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=500&deliveryMethod=local_pick_up",
   },
+  countriesPerRow: 4,
   countries: {
     "usa": {
       "name": "USA (without AK or HI)",
@@ -171,6 +172,30 @@ export const siteConfig = {
         "116186601728289",
       ],
       "coverage": "https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B500000%2C20.6657448%2C-101.3450739%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C19.8327623%2C-90.5397534%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C16.5743033%2C-95.9895844%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C26.8896633%2C-101.3904641%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C27.7472776%2C-107.6049954%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C22.9055613%2C-109.927761%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C29.3775411%2C-114.3911662%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D",
+    },
+    "ind": {
+      "name": "India",
+      "icon": "india.svg",
+      "locale": "kms",
+      "cities": [
+        "Sanquelim, Goa",
+        "Sangrur, Punjab",
+        "Kolkata, West Bengal",
+        "Himatnagar, Gujarat",
+        "Allahabad, Uttar Pradesh",
+        "Bhamragarh, Maharashtra",
+        "Salem, Tamil Nadu",
+      ],
+      "cities_fb": [
+        "104029036299831",
+        "109148435777996",
+        "108212225873404",
+        "112269678784935",
+        "2099665383411187",
+        "115852108431709",
+        "1410397895862431",
+      ],
+      "coverage": "https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B16093.4%2C17.9966867%2C78.1776495%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C10.6204893%2C79.3052242%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C19.3398817%2C80.07254%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C23.6170281%2C72.4826435%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C30.2552732%2C75.8657524%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C25.435664%2C81.850003%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C22.5215371%2C87.856952%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C15.5262366%2C74.0321799%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D",
     },
   }
 }
