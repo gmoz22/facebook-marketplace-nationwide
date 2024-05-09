@@ -1,12 +1,13 @@
 'use client'
 
-import {ChangeEvent, JSX, KeyboardEvent, useCallback, useState} from 'react'
-import {Input} from "@/components/ui/input";
-import {Button} from "@/components/ui/button";
+import {ChangeEvent, JSX, KeyboardEvent, useCallback, useEffect, useState} from 'react'
+import Link from "next/link";
 import {siteConfig} from "@/config/site";
 import {cn, sliceIntoChunks} from "@/lib/utils";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card"
-import Link from "next/link";
+import {getCookie, setCookie} from "@/components/cookies";
 import ReactGA from "react-ga4";
 
 ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID);
@@ -24,12 +25,19 @@ export default function Search() {
     coverage: string;
   }
 
+  useEffect(() => {
+    let cookieCountry = getCookie('country')
+    if (cookieCountry) {
+      setCountry(cookieCountry)
+    }
+  }, [country]);
+
   interface Countries {
     [key: string]: CountriesDetails
   }
 
   const countriesData: Countries = siteConfig.countries
-  const splitCountriesData = sliceIntoChunks( Object.keys(countriesData), siteConfig.countriesPerRow )
+  const splitCountriesData = sliceIntoChunks(Object.keys(countriesData), siteConfig.countriesPerRow)
 
   const updateSearchTerm = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,6 +58,15 @@ export default function Search() {
     [searchTerm]
   );
 
+  function setCountryAndCookie(newCountry: string) {
+    if (newCountry!=getCookie('country')) {
+      setCookie('country', newCountry)
+    }
+    if (newCountry!=country) {
+      setCountry(newCountry)
+    }
+  }
+
   const doSearch = useCallback(() => {
     if (searchTerm.trim() === "") return;
     let citiesFb = countriesData[country].cities_fb;
@@ -57,7 +74,6 @@ export default function Search() {
     for (let city of citiesFb) {
       window.open(siteConfig.templateURL[locale as keyof typeof siteConfig.templateURL].replace('|CITY|', city).replace('|STRING|', searchTerm), "fbmp" + country + "search" + city);
     }
-
     ReactGA.event({
       category: "search",
       action: `search_${country}`,
@@ -65,16 +81,16 @@ export default function Search() {
     });
   }, [searchTerm, country]);
 
-  function countryDataRow(row: Array<any>) {
+  function countryDataRow(row: Array<string>) {
     return (
       row.map((key: string) => (
-          <div className={cn("w-1/"+siteConfig.countriesPerRow, "text-center px-auto flex-none")} key={key}>
+          <div className={cn("w-1/"+siteConfig.countriesPerRow, "text-center mx-auto flex-none")} key={key}>
             <HoverCard>
               <HoverCardTrigger>
                 <Button
                   className={cn("py-8", (key === country) ? 'bg-secondary' : '')}
                   variant="outline"
-                  onClick={() => setCountry(key)}>
+                  onClick={() => setCountryAndCookie(key)}>
                   <img className="w-16" src={`flags/${countriesData[key].icon}`} alt={countriesData[key].name}/>
                 </Button>
               </HoverCardTrigger>
@@ -91,14 +107,18 @@ export default function Search() {
     )
   }
 
+  function listRow(row: Array<string>) {
+    return (
+      <div className="mt-10 flex" key={row.join('_')}>
+        { countryDataRow(row) }
+      </div>
+    )
+  }
+
   const listCountries = () => {
     let content: JSX.Element[] = [];
     Object.values(splitCountriesData).map((row) => (
-      content.push(
-        <div className="mt-10 flex">
-          { countryDataRow(row) }
-        </div>
-      )
+      content.push( listRow(row) )
     ))
     return (content)
   };
