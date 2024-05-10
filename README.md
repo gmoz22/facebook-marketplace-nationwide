@@ -6,14 +6,20 @@ _Nationwide Facebook Marketplace search using the least amount of tabs possible.
 
 ### How to use
 
-You must be logged into Facebook, disable your ad/popup blockrs.
+You must be logged into Facebook, disable your ad/popup blockers, allow browser to open multiple tabs.
 
 ### Countries supported
 
-* USA lower 48 / all 50 states
-* Canada
+* Argentina
 * Australia (credits @kylemd)
+* Brazil
+* Canada
+* France
+* India
 * Mexico
+* Spain
+* United Kingdom
+* USA lower 48 / all 50 states
 
 ### Roadmap
 * Add more countries
