@@ -17,6 +17,7 @@ You must be logged into Facebook, disable your ad/popup blockers, allow browser 
 <img src="public/flags/france.svg" alt="France flag" width="20"> France<br/>
 <img src="public/flags/india.svg" alt="India flag" width="20"> India<br/>
 <img src="public/flags/mexico.svg" alt="Mexico flag" width="20"> Mexico<br/>
+<img src="public/flags/new-zealand.svg" alt="New Zealand flag" width="20"> New Zealand<br/>
 <img src="public/flags/spain.svg" alt="Spain flag" width="20"> Spain<br/>
 <img src="public/flags/united-kingdom.svg" alt="United Kingdom flag" width="20"> United Kingdom<br/>
 <img src="public/flags/usa_48.svg" alt="USA 48 statesflag" width="20"> USA lower 48<br/>
