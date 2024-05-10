@@ -37,7 +37,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" suppressHydrationWarning>
         <head>
           <title>Facebook Marketplace Nationwide Search</title>
-          <meta name="description" content="Search the Facebook Marketplace across all of USA, Canada, Australia, Mexico, India and Brazil." />
+          <meta name="description" content="Search the Facebook Marketplace across all of USA, Canada, Mexico, Brazil, Argentina, Australia, India, United Kingdom, France and Spain." />
           <meta name="author" content="GMOZ.biz" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -53,7 +53,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <SiteHeader />
               <div className="h-full">{children}</div>
             </div>
-            {/*<TailwindIndicator />*/}
           </ThemeProvider>
         </body>
       </html>

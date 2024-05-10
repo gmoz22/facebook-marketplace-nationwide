@@ -95,8 +95,8 @@ export default function Search() {
                 </Button>
               </HoverCardTrigger>
               <HoverCardContent className="text-sm">
-                Searches {countriesData[key].name} nationwide by opening <span
-                className="text-primary bold whitespace-nowrap">{countriesData[key].cities.length} tabs</span>. <Link
+                Searches <span
+                className="text-primary font-bold whitespace-nowrap">{countriesData[key].name}</span> nationwide by opening <b className="whitespace-nowrap cursor-help" title={countriesData[key].cities.join('\n')}>{countriesData[key].cities.length} tabs</b>. <Link
                 className="underline text-xs" href={countriesData[key].coverage} target="_blank" rel="noreferrer">See
                 coverage</Link>
               </HoverCardContent>

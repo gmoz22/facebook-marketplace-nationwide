@@ -32,7 +32,7 @@ export function SiteHeader() {
                 </div>
                 </PopoverTrigger>
               <PopoverContent className="text-sm">
-                Make sure you are logged into Facebook and that your ad/popup blockers are disabled.
+                Make sure you are logged into Facebook, that your ad/popup blockers are disabled and that your browser allows opening multiple tabs.
               </PopoverContent>
             </Popover>
             <ThemeToggle />
