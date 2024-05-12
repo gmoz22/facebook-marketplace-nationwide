@@ -91,4 +91,5 @@
 
 .prices {
   width: 160px;
+  display: inline;
 }

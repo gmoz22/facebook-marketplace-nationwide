@@ -26,4 +26,5 @@ You must be logged into Facebook, disable your ad/popup blockers, allow browser 
 _Thanks to @kylemd, @jnsjunior, @kwbr1_
 
 ### Roadmap
-* Add more countries
+* ~~Search filters~~
+* More countries
