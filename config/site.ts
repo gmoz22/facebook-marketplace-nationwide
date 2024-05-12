@@ -12,7 +12,38 @@ export const siteConfig = {
   links: {
     donate: "https://www.paypal.com/donate/?hosted_button_id=VDZATQAYQMVM6",
     github: "https://github.com/gmoz22/facebook-marketplace-nationwide",
-    fbmarketplace_settings: "https://www.facebook.com/marketplace/la/search?&radius=805&deliveryMethod=local_pick_up",
+  },
+  filters: {
+    deliveryMethod: {
+      local_pick_up: "Local Pickup",
+      shipping: "Shipping"
+    },
+    radius: "radius",
+    sortBy: {
+      best_match: "Suggested",
+      distance_ascend: "Distance: Nearest first",
+      creation_time_descend: "Date Listed: Newest first",
+      price_ascend: "Price: Lowest first",
+      price_descend: "Price: Highest first",
+    },
+    minPrice: "minPrice",
+    maxPrice: "maxPrice",
+    itemCondition: {
+      new: "New",
+      used_like_new: "Used Like New",
+      used_good: "Used Good",
+      used_fair: "Used Fair",
+    },
+    availability: {
+      "in stock": "Available",
+      "out of stock": "Sold"
+    },
+    daysSinceListed: {
+      "0": "All",
+      "1": "Last 24 hours",
+      "7": "Last 7 days",
+      "30": "Last 30 days",
+    }
   },
   templateURL: {
     miles: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=805&deliveryMethod=local_pick_up",
