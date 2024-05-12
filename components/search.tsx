@@ -23,14 +23,15 @@ export default function Search() {
   const [country, setCountry] = useState("usa")
   const [minPrice, setMinPrice] = useState("")
   const [maxPrice, setMaxPrice] = useState("")
-  const [sortBy, setSortBy] = useState("best_match")
+  const [sortBy, setSortBy] = useState(siteConfig.filters.defaultSortBy)
+  const [availability, setAvailability] = useState(siteConfig.filters.defaultAvailability)
+  const [deliveryMethod, setDeliveryMethod] = useState(siteConfig.filters.defaultDeliveryMethod)
+  const [daysSinceListed, setDaysSinceListed] = useState(siteConfig.filters.defaultDaysSinceListed)
   const itemConditionInitialState: Record<string, boolean> = {}
   Object.keys(siteConfig.filters.itemCondition).map((key) => {
     itemConditionInitialState[key] = false
   })
   const [itemCondition, setItemCondition] = useState(itemConditionInitialState)
-  const [availability, setAvailability] = useState("in stock")
-  const [daysSinceListed, setDaysSinceListed] = useState("0")
 
   useEffect(() => {
     let cookieCountry = getCookie('country')
@@ -44,6 +45,7 @@ export default function Search() {
   const filterSortBy: Defs.FilterSortBy = siteConfig.filters.sortBy
   const filterItemCondition: Defs.FilterItemCondition = siteConfig.filters.itemCondition
   const filterAvailability: Defs.FilterAvailability = siteConfig.filters.availability
+  const filterDeliveryMethod: Defs.FilterDeliveryMethod = siteConfig.filters.deliveryMethod
   const filterDaysSinceListed: Defs.FilterDaysSinceListed = siteConfig.filters.daysSinceListed
 
   const updateSearchTerm = useCallback(
@@ -108,17 +110,23 @@ export default function Search() {
       if (!!minPrice) searchURL += '&minPrice=' + minPrice
       if (!!maxPrice) searchURL += '&maxPrice=' + maxPrice
 
-      searchURL += '&sortBy=' + sortBy
+      if (sortBy!==siteConfig.filters.defaultSortBy)
+        searchURL += '&sortBy=' + sortBy
 
       let itemConditionStatus: any[] = []
       Object.keys(itemCondition).map((itemKey) => {
-        if (!!itemCondition[itemKey]) itemConditionStatus.push(itemKey)
+        if (itemCondition[itemKey]) itemConditionStatus.push(itemKey)
       })
       if (itemConditionStatus.length) searchURL += '&itemCondition=' + itemConditionStatus.join(',')
 
-      searchURL += '&availability=' + availability
+      if (availability!==siteConfig.filters.defaultAvailability)
+        searchURL += '&availability=' + availability
 
-      if (daysSinceListed!=="0") searchURL += '&daysSinceListed=' + daysSinceListed
+      if (deliveryMethod!=siteConfig.filters.defaultDeliveryMethod)
+        searchURL += '&deliveryMethod=' + deliveryMethod
+
+      if (daysSinceListed!==siteConfig.filters.defaultDaysSinceListed)
+        searchURL += '&daysSinceListed=' + daysSinceListed
 
       jobQueue.addTask({
         callback: () => { window.open(searchURL, "fbmp" + country + "search" + city) },
@@ -185,8 +193,8 @@ export default function Search() {
           <Button className="ml-8 px-8 my-0 uppercase cursor-pointer" onClick={doSearch}>Search</Button>
         </div>
         <div className="flex flex-row flex-wrap fontSans mt-4">
-          <label className="text-xs mb-4">Sort By &nbsp;
-            <Select name="sort_by" onValueChange={setSortBy} defaultValue="best_match">
+          <label className="text-xs mb-4 mr-10">Sort By &nbsp;
+            <Select name="sort_by" onValueChange={setSortBy} defaultValue={siteConfig.filters.defaultSortBy}>
               <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 ">
                 <SelectValue placeholder="Sort By" />
               </SelectTrigger>
@@ -197,8 +205,8 @@ export default function Search() {
               </SelectContent>
             </Select>
           </label>
-          <label className="text-xs mb-4 ml-10">Days Since Listed &nbsp;
-            <Select name="daysSinceListed" onValueChange={setDaysSinceListed} defaultValue="0">
+          <label className="text-xs mb-4 mr-10">Days Since Listed &nbsp;
+            <Select name="daysSinceListed" onValueChange={setDaysSinceListed} defaultValue={siteConfig.filters.defaultDaysSinceListed}>
               <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none">
                 <SelectValue placeholder="Days Since Listed" />
               </SelectTrigger>
@@ -209,8 +217,8 @@ export default function Search() {
               </SelectContent>
             </Select>
           </label>
-          <label className="text-xs mb-4 ml-10">Availability &nbsp;
-            <Select name="availability" onValueChange={setAvailability} defaultValue="in stock">
+          <label className="text-xs mb-4 mr-10">Availability &nbsp;
+            <Select name="availability" onValueChange={setAvailability} defaultValue={siteConfig.filters.defaultAvailability}>
               <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none">
                 <SelectValue placeholder="Availability" />
               </SelectTrigger>
@@ -221,23 +229,36 @@ export default function Search() {
               </SelectContent>
             </Select>
           </label>
-          <div className="text-xs mb-4 ml-10">Condition<br />
-            <br />
+          <label className="text-xs mb-4">Delivery &nbsp;
+            <Select name="delivery" onValueChange={setDeliveryMethod} defaultValue={siteConfig.filters.defaultDeliveryMethod}>
+              <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none">
+                <SelectValue placeholder="Delivery" />
+              </SelectTrigger>
+              <SelectContent>
+                { Object.keys(filterDeliveryMethod).map((deliveryKey) => (
+                  <SelectItem className="cursor-pointer" key={deliveryKey} value={deliveryKey}>{filterDeliveryMethod[deliveryKey]}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </label>
+          <span className="w-full h-0"></span>
+          <div className="text-xs mb-4 flex flex-row"><span className="mr-10">Condition</span>
             { Object.keys(filterItemCondition).map((conditionKey: any) => (
               <div key={conditionKey}>
                 <label
-                  className="ml-2 cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  className="mr-4 cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  <Checkbox name="condition" id={`condition_${conditionKey}`} className="cursor-pointer mr-2" onCheckedChange={(checked) => updateConditions(conditionKey, checked as boolean)} />
-                  {filterItemCondition[conditionKey]}
+                  <Checkbox name="condition" id={`condition_${conditionKey}`} className="border-solid cursor-pointer mr-2" onCheckedChange={(checked) => updateConditions(conditionKey, checked as boolean)} />
+                  <span className="">{filterItemCondition[conditionKey]}</span>
                 </label>
-                <br />
               </div>
               ))}
           </div>
-          <span style={{"width":"100%"}}></span>
-          <label className="text-xs mb-2">Min. Price<Input className="prices text-xs h-8 p-1 mt-2 text-primary caret-secondary" id="minPrice" type="number" min="0" value={minPrice} onChange={updateMinPrice} /></label>
-          <label className="text-xs ml-10">Max. Price<Input className="prices text-xs h-8 p-1 mt-2 text-primary caret-secondary" id="maxPrice" type="number" min="0" value={maxPrice} onChange={updateMaxPrice} /></label>
+          <span className="w-full h-0"></span>
+          <div className="text-xs flex flex-row">
+            <div><label><span className="mr-2 text-xs">Min. Price</span><Input className="prices flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="minPrice" type="number" min="0" value={minPrice} onChange={updateMinPrice} /></label></div>
+            <div><label className="ml-10"><span className="mr-2 text-xs">Max. Price</span><Input className="prices flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="maxPrice" type="number" min="0" value={maxPrice} onChange={updateMaxPrice} /></label></div>
+          </div>
         </div>
         <div>
           { listCountries() }

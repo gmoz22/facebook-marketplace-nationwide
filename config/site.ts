@@ -14,11 +14,13 @@ export const siteConfig = {
     github: "https://github.com/gmoz22/facebook-marketplace-nationwide",
   },
   filters: {
+    defaultDeliveryMethod: "local_pick_up",
     deliveryMethod: {
       local_pick_up: "Local Pickup",
       shipping: "Shipping"
     },
     radius: "radius",
+    defaultSortBy: "best_match",
     sortBy: {
       best_match: "Suggested",
       distance_ascend: "Distance: Nearest first",
@@ -34,10 +36,12 @@ export const siteConfig = {
       used_good: "Used Good",
       used_fair: "Used Fair",
     },
+    defaultAvailability: "in stock",
     availability: {
       "in stock": "Available",
       "out of stock": "Sold"
     },
+    defaultDaysSinceListed: "0",
     daysSinceListed: {
       "0": "All",
       "1": "Last 24 hours",
@@ -46,10 +50,10 @@ export const siteConfig = {
     }
   },
   templateURL: {
-    miles: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=805&deliveryMethod=local_pick_up",
-    kms: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=500&deliveryMethod=local_pick_up",
+    miles: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=805",
+    kms: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=500",
   },
-  countriesPerRow: 4,
+  countriesPerRow: 6,
   countries: {
     "usa": {
       "name": "USA (without AK or HI)",

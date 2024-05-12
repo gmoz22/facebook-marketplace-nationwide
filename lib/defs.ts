@@ -19,6 +19,9 @@ export interface FilterItemCondition {
 export interface FilterAvailability {
   [key: string]: string
 }
+export interface FilterDeliveryMethod {
+  [key: string]: string
+}
 export interface FilterDaysSinceListed {
   [key: string]: string
 }
