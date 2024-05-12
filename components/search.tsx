@@ -12,6 +12,7 @@ import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hov
 import {Checkbox} from "@/components/ui/checkbox"
 import {getCookie, setCookie} from "@/components/cookies"
 import ReactGA from "react-ga4"
+import {useSearchParams} from 'next/navigation'
 import {TimedQueue} from '@/lib/timed-queue'
 
 import "@/styles/components/select.css"
@@ -20,6 +21,7 @@ ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID)
 
 export default function Search() {
   const [searchTerm, setSearch] = useState("")
+  const [searchThrottle, ] = useState(useSearchParams().get('throttle')||false)
   const [country, setCountry] = useState("usa")
   const [minPrice, setMinPrice] = useState("")
   const [maxPrice, setMaxPrice] = useState("")
@@ -101,7 +103,6 @@ export default function Search() {
     let jobMinDelay = 200
     let jobMaxDelay = 1000
 
-
     for (let city of citiesFb) {
       let searchURL = siteConfig.templateURL[locale as keyof typeof siteConfig.templateURL]
         .replace('|CITY|', city)
@@ -128,12 +129,18 @@ export default function Search() {
       if (daysSinceListed!==siteConfig.filters.defaultDaysSinceListed)
         searchURL += '&daysSinceListed=' + daysSinceListed
 
-      jobQueue.addTask({
-        callback: () => { window.open(searchURL, "fbmp" + country + "search" + city) },
-        time: Math.ceil(Math.random() * (jobMaxDelay - jobMinDelay) + jobMinDelay)
-      })
+      if (searchThrottle) {
+        jobQueue.addTask({
+          callback: () => {
+            window.open(searchURL, "fbmp" + country + "search" + city)
+          },
+          time: Math.ceil(Math.random() * (jobMaxDelay - jobMinDelay) + jobMinDelay)
+        })
+      } else {
+        window.open(searchURL, "fbmp" + country + "search" + city)
+      }
     }
-    jobQueue.start()
+    if (searchThrottle) jobQueue.start()
 
     ReactGA.event({
       category: "search",
