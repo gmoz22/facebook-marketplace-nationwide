@@ -200,58 +200,73 @@ export default function Search() {
           <Button className="ml-8 px-8 my-0 uppercase cursor-pointer" onClick={doSearch}>Search</Button>
         </div>
         <div className="flex flex-row flex-wrap fontSans mt-4">
-          <label className="text-xs mb-4 mr-10">Sort By &nbsp;
-            <Select name="sort_by" onValueChange={setSortBy} defaultValue={siteConfig.filters.defaultSortBy}>
-              <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 ">
-                <SelectValue placeholder="Sort By" />
-              </SelectTrigger>
-              <SelectContent>
-                { Object.keys(filterSortBy).map((sortKey) => (
-                  <SelectItem className="cursor-pointer" key={sortKey} value={sortKey}>{filterSortBy[sortKey]}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <label className="w-1/4 text-xs">
+            <div className="bg-primary/5 m-1 p-2 rounded">
+                Sort By &nbsp;
+              <Select name="sort_by" onValueChange={setSortBy} defaultValue={siteConfig.filters.defaultSortBy}>
+                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 bg-transparent">
+                  <SelectValue placeholder="Sort By" />
+                </SelectTrigger>
+                <SelectContent>
+                  { Object.keys(filterSortBy).map((sortKey) => (
+                    <SelectItem className="cursor-pointer" key={sortKey} value={sortKey}>{filterSortBy[sortKey]}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </label>
-          <label className="text-xs mb-4 mr-10">Days Since Listed &nbsp;
-            <Select name="daysSinceListed" onValueChange={setDaysSinceListed} defaultValue={siteConfig.filters.defaultDaysSinceListed}>
-              <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none">
-                <SelectValue placeholder="Days Since Listed" />
-              </SelectTrigger>
-              <SelectContent>
-                { Object.keys(filterDaysSinceListed).map((daysKey) => (
-                  <SelectItem className="cursor-pointer" key={daysKey} value={daysKey}>{filterDaysSinceListed[daysKey]}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <label className="w-1/4 text-xs mb-4">
+            <div className="bg-primary/5 m-1 p-2 rounded">
+              Days Since Listed &nbsp;
+              <Select name="daysSinceListed" onValueChange={setDaysSinceListed} defaultValue={siteConfig.filters.defaultDaysSinceListed}>
+                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none bg-transparent">
+                  <SelectValue placeholder="Days Since Listed" />
+                </SelectTrigger>
+                <SelectContent>
+                  { Object.keys(filterDaysSinceListed).map((daysKey) => (
+                    <SelectItem className="cursor-pointer" key={daysKey} value={daysKey}>{filterDaysSinceListed[daysKey]}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </label>
-          <label className="text-xs mb-4 mr-10">Availability &nbsp;
-            <Select name="availability" onValueChange={setAvailability} defaultValue={siteConfig.filters.defaultAvailability}>
-              <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none">
-                <SelectValue placeholder="Availability" />
-              </SelectTrigger>
-              <SelectContent>
-                { Object.keys(filterAvailability).map((availKey) => (
-                  <SelectItem className="cursor-pointer" key={availKey} value={availKey}>{filterAvailability[availKey]}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <label className="w-1/4 text-xs mb-4">
+            <div className="bg-primary/5 m-1 p-2 rounded">
+              Availability &nbsp;
+              <Select name="availability" onValueChange={setAvailability} defaultValue={siteConfig.filters.defaultAvailability}>
+                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none bg-transparent">
+                  <SelectValue placeholder="Availability" />
+                </SelectTrigger>
+                <SelectContent>
+                  { Object.keys(filterAvailability).map((availKey) => (
+                    <SelectItem className="cursor-pointer" key={availKey} value={availKey}>{filterAvailability[availKey]}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              </div>
           </label>
-          <label className="text-xs mb-4">Delivery &nbsp;
-            <Select name="delivery" onValueChange={setDeliveryMethod} defaultValue={siteConfig.filters.defaultDeliveryMethod}>
-              <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none">
-                <SelectValue placeholder="Delivery" />
-              </SelectTrigger>
-              <SelectContent>
-                { Object.keys(filterDeliveryMethod).map((deliveryKey) => (
-                  <SelectItem className="cursor-pointer" key={deliveryKey} value={deliveryKey}>{filterDeliveryMethod[deliveryKey]}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <label className="w-1/4 text-xs mb-4">
+            <div className="bg-primary/5 m-1 p-2 rounded">
+              Delivery &nbsp;
+              <Select name="delivery" onValueChange={setDeliveryMethod} defaultValue={siteConfig.filters.defaultDeliveryMethod}>
+                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none bg-transparent">
+                  <SelectValue placeholder="Delivery" />
+                </SelectTrigger>
+                <SelectContent>
+                  { Object.keys(filterDeliveryMethod).map((deliveryKey) => (
+                    <SelectItem className="cursor-pointer" key={deliveryKey} value={deliveryKey}>{filterDeliveryMethod[deliveryKey]}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </label>
           <span className="w-full h-0"></span>
-          <div className="text-xs mb-4 flex flex-row"><span className="mr-10">Condition</span>
+          <div className="w-full text-xs bg-primary/5 m-1 mb-4 p-2 rounded">
+            <div className="mb-3">Condition</div>
+            <div className="w-full h-0"></div>
+            <div className="w-full flex flex-row">
             { Object.keys(filterItemCondition).map((conditionKey: any) => (
-              <div key={conditionKey}>
+              <div key={conditionKey} className="w-1/4">
                 <label
                   className="mr-4 cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
@@ -259,12 +274,13 @@ export default function Search() {
                   <span className="">{filterItemCondition[conditionKey]}</span>
                 </label>
               </div>
-              ))}
+            ))}
+            </div>
           </div>
           <span className="w-full h-0"></span>
-          <div className="text-xs flex flex-row">
-            <div><label><span className="mr-2 text-xs">Min. Price</span><Input className="prices flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="minPrice" type="number" min="0" value={minPrice} onChange={updateMinPrice} /></label></div>
-            <div><label className="ml-10"><span className="mr-2 text-xs">Max. Price</span><Input className="prices flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="maxPrice" type="number" min="0" value={maxPrice} onChange={updateMaxPrice} /></label></div>
+          <div className="w-full text-xs flex flex-row bg-primary/5 m-1 mb-4 p-2 rounded">
+            <label className="w-1/2"><span className="mr-2 text-xs w-1/3">Min. Price</span><Input className="prices w-2/3 bg-transparent flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="minPrice" type="number" min="0" value={minPrice} onChange={updateMinPrice} /></label>
+            <label className="w-1/2 ml-6"><span className="mr-2 text-xs w-1/3">Max. Price</span><Input className="prices w-2/3 bg-transparent flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="maxPrice" type="number" min="0" value={maxPrice} onChange={updateMaxPrice} /></label>
           </div>
         </div>
         <div>
