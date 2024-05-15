@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  url: "http://facebook-marketplace-nationwide-search.gmoz.biz",
+  url: "http://fbmpns.gmoz.biz",
   name: "Facebook Marketplace Nationwide Search",
   description: "Search the Facebook Marketplace across all of USA, Canada, Mexico, Brazil, Argentina, Australia, New Zealand, India, United Kingdom, France and Spain.",
   mainNav: [

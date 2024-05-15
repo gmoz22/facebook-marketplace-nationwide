@@ -2,7 +2,7 @@
 _Nationwide Facebook Marketplace search using the least amount of tabs possible._
 
 **Homepage:**
-<a href="http://facebook-marketplace-nationwide-search.gmoz.biz" target="_blank">http://facebook-marketplace-nationwide-search.gmoz.biz</a>
+<a href="http://fbmpns.gmoz.biz/" target="_blank">http://fbmpns.gmoz.biz</a>
 
 ### How to use
 
