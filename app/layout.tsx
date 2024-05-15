@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  authors: [{ name: "GMOZ.biz", url: "http://www.gmoz.biz" }],
+  creator: "GMOZ.biz",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -23,6 +25,16 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [{
+      url: siteConfig.url + "/share.jpg",
+    }],
+  }
 }
 
 interface RootLayoutProps {
@@ -35,13 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head>
-          <title>Facebook Marketplace Nationwide Search</title>
-          <meta name="description" content="Search the Facebook Marketplace across all of USA, Canada, Mexico, Brazil, Argentina, Australia, New Zealand, India, United Kingdom, France and Spain." />
-          <meta name="author" content="GMOZ.biz" />
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        </head>
+        <head></head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
