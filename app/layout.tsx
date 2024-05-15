@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
     type: "website",
     url: siteConfig.url,
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [{
-      url: siteConfig.url + "/share.jpg",
+      url: "/share.jpg",
     }],
   }
 }
@@ -47,7 +48,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head></head>
+        <head>
+          <title>{siteConfig.name}</title>
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",

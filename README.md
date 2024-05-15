@@ -30,6 +30,7 @@ _Thanks to @kylemd, @jnsjunior, @kwbr1_
 
 ### Changelog
 
+* 2024-05-14 – `?throttle=` URL param in milliseconds to delay tab opening
 * 2024-05-12 – Delivery search filter (stealth), UI & search params tweaks, hidden `?throttle=1` URL param
 * 2024-05-11 – Search filters: Sort By, Condition, Availability, Days Since Listed
 * 2024-05-10 – Support for Argentina, United Kingdom, France, Spain and New Zealand

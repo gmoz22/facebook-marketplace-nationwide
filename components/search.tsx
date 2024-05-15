@@ -16,12 +16,13 @@ import {useSearchParams} from 'next/navigation'
 import {TimedQueue} from '@/lib/timed-queue'
 
 import "@/styles/components/select.css"
+import Image from "next/image";
 
 ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID)
 
 export default function Search() {
   const [searchTerm, setSearch] = useState("")
-  const [searchThrottle, ] = useState(useSearchParams().get('throttle')||false)
+  const searchThrottle = parseInt(useSearchParams().get('throttle') || '0' as string)
   const [country, setCountry] = useState("usa")
   const [minPrice, setMinPrice] = useState("")
   const [maxPrice, setMaxPrice] = useState("")
@@ -61,30 +62,18 @@ export default function Search() {
     (e: ChangeEvent<HTMLInputElement>) => {
       setMinPrice(e.target.value)
     },
-    [minPrice]
+    []
   )
   const updateMaxPrice = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setMaxPrice(e.target.value)
-    }, [maxPrice]
+    }, []
   )
   const updateConditions = (itemIndex: string, isChecked: boolean) => {
     const updatedListOfItems: Record<string, boolean> = itemCondition
     updatedListOfItems[itemIndex] = isChecked
     setItemCondition(updatedListOfItems)
   }
-
-  const handleKeyPress = useCallback(
-    (e: KeyboardEvent<HTMLInputElement>) => {
-      if (searchTerm && e.key === 'Enter') {
-        e.preventDefault()
-        doSearch()
-      } else {
-        setSearch(searchTerm)
-      }
-    },
-    [searchTerm]
-  )
 
   function setCountryAndCookie(newCountry: string) {
     if (newCountry!=getCookie('country')) {
@@ -100,8 +89,6 @@ export default function Search() {
     let citiesFb = countriesData[country].cities_fb
     let locale: string = countriesData[country].locale
     let jobQueue: TimedQueue = new TimedQueue()
-    let jobMinDelay = 200
-    let jobMaxDelay = 1000
 
     for (let city of citiesFb) {
       let searchURL = siteConfig.templateURL[locale as keyof typeof siteConfig.templateURL]
@@ -130,6 +117,8 @@ export default function Search() {
         searchURL += '&daysSinceListed=' + daysSinceListed
 
       if (searchThrottle) {
+        let jobMinDelay = searchThrottle - (searchThrottle*0.1)
+        let jobMaxDelay = searchThrottle + (searchThrottle*0.1)
         jobQueue.addTask({
           callback: () => {
             window.open(searchURL, "fbmp" + country + "search" + city)
@@ -147,7 +136,19 @@ export default function Search() {
       action: `search_${country}`,
       label: searchTerm
     })
-  }, [searchTerm, country, sortBy, itemCondition, availability, daysSinceListed, minPrice, maxPrice])
+  }, [searchTerm, country, countriesData, sortBy, itemCondition, availability, daysSinceListed, minPrice, maxPrice, deliveryMethod, searchThrottle])
+
+  const handleKeyPress = useCallback(
+    (e: KeyboardEvent<HTMLInputElement>) => {
+      if (searchTerm && e.key === 'Enter') {
+        e.preventDefault()
+        doSearch()
+      } else {
+        setSearch(searchTerm)
+      }
+    },
+    [searchTerm, doSearch]
+  )
 
   function countryDataRow(row: Array<string>) {
     return (
@@ -156,10 +157,10 @@ export default function Search() {
             <HoverCard>
               <HoverCardTrigger>
                 <Button
-                  className={cn("p-2 cursor-pointer", (key === country) ? 'bg-secondary' : '')}
+                  className={cn("p-2 cursor-pointer w-16", (key === country) ? 'bg-secondary' : '')}
                   variant="outline"
                   onClick={() => setCountryAndCookie(key)}>
-                  <img className="w-16" src={`flags/${countriesData[key].icon}`} alt={countriesData[key].name}/>
+                  <Image width={64} height={64} src={`flags/${countriesData[key].icon}`} alt={countriesData[key].name} />
                 </Button>
               </HoverCardTrigger>
               <HoverCardContent className="text-sm">
