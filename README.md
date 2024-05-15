@@ -45,4 +45,5 @@ _Thanks to @kylemd, @jnsjunior, @kwbr1_
 
 ### Roadmap
 * ~~Search filters~~
+* Support for Categories
 * More countries
