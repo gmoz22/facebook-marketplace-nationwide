@@ -160,7 +160,7 @@ export default function Search() {
                   className={cn("p-2 cursor-pointer w-16", (key === country) ? 'bg-secondary' : '')}
                   variant="outline"
                   onClick={() => setCountryAndCookie(key)}>
-                  <Image width={64} height={64} src={`flags/${countriesData[key].icon}`} alt={countriesData[key].name} />
+                  <Image width={64} height={64} src={`./flags/${countriesData[key].icon}`} alt={countriesData[key].name} />
                 </Button>
               </HoverCardTrigger>
               <HoverCardContent className="text-sm">

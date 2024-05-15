@@ -10,18 +10,18 @@ You must be logged into Facebook, disable your ad/popup blockers, allow browser 
 
 ### Countries supported
 
-<img src="public/flags/argentina.svg" alt="Argentina flag" width="20"> Argentina<br/>
-<img src="public/flags/australia.svg" alt="Australia flag" width="20"> Australia<br/>
-<img src="public/flags/brazil.svg" alt="Brazil flag" width="20"> Brazil<br/>
-<img src="public/flags/canada.svg" alt="Canada flag" width="20"> Canada<br/>
-<img src="public/flags/france.svg" alt="France flag" width="20"> France<br/>
-<img src="public/flags/india.svg" alt="India flag" width="20"> India<br/>
-<img src="public/flags/mexico.svg" alt="Mexico flag" width="20"> Mexico<br/>
-<img src="public/flags/new-zealand.svg" alt="New Zealand flag" width="20"> New Zealand<br/>
-<img src="public/flags/spain.svg" alt="Spain flag" width="20"> Spain<br/>
-<img src="public/flags/united-kingdom.svg" alt="United Kingdom flag" width="20"> United Kingdom<br/>
-<img src="public/flags/usa_48.svg" alt="USA 48 states flag" width="20"> USA lower 48 states<br/>
-<img src="public/flags/usa.svg" alt="USA flag" width="20"> USA all 50 states<br/>
+<img src="public/flags/argentina.png" alt="Argentina flag" width="20"> Argentina<br/>
+<img src="public/flags/australia.png" alt="Australia flag" width="20"> Australia<br/>
+<img src="public/flags/brazil.png" alt="Brazil flag" width="20"> Brazil<br/>
+<img src="public/flags/canada.png" alt="Canada flag" width="20"> Canada<br/>
+<img src="public/flags/france.png" alt="France flag" width="20"> France<br/>
+<img src="public/flags/india.png" alt="India flag" width="20"> India<br/>
+<img src="public/flags/mexico.png" alt="Mexico flag" width="20"> Mexico<br/>
+<img src="public/flags/new-zealand.png" alt="New Zealand flag" width="20"> New Zealand<br/>
+<img src="public/flags/spain.png" alt="Spain flag" width="20"> Spain<br/>
+<img src="public/flags/united-kingdom.png" alt="United Kingdom flag" width="20"> United Kingdom<br/>
+<img src="public/flags/usa_48.png" alt="USA 48 states flag" width="20"> USA lower 48 states<br/>
+<img src="public/flags/usa.png" alt="USA flag" width="20"> USA all 50 states<br/>
 
 _Sample coverage (USA lower 48):<br/>_
 <img src="public/coverage-usa.jpg" alt="USA flag" width="400">

@@ -58,7 +58,7 @@ export const siteConfig = {
   countries: {
     "usa": {
       "name": "USA (without AK or HI)",
-      "icon": "usa_48.svg",
+      "icon": "usa_48.png",
       "locale": "miles",
       "cities": [
         "Portland, OR",
@@ -84,7 +84,7 @@ export const siteConfig = {
     },
     "usa_full": {
       "name": "USA",
-      "icon": "usa.svg",
+      "icon": "usa.png",
       "locale": "miles",
       "cities": [
         "Portland, OR",
@@ -120,7 +120,7 @@ export const siteConfig = {
     },
     "can": {
       "name": "Canada",
-      "icon": "canada.svg",
+      "icon": "canada.png",
       "locale": "kms",
       "cities": [
         "Saint Quentin, NB",
@@ -148,7 +148,7 @@ export const siteConfig = {
     },
     "mex": {
       "name": "Mexico",
-      "icon": "mexico.svg",
+      "icon": "mexico.png",
       "locale": "kms",
       "cities": [
         "Irapuato,Guanajuato ",
@@ -172,7 +172,7 @@ export const siteConfig = {
     },
     "bra": {
       "name": "Brazil",
-      "icon": "brazil.svg",
+      "icon": "brazil.png",
       "locale": "kms",
       "cities": [
         "Betim, Minas Gerais",
@@ -218,7 +218,7 @@ export const siteConfig = {
     },
     "arg": {
       "name": "Argentina",
-      "icon": "argentina.svg",
+      "icon": "argentina.png",
       "locale": "kms",
       "cities": [
         "Pehuajó, Buenos Aires",
@@ -242,7 +242,7 @@ export const siteConfig = {
     },
     "aus": {
       "name": "Australia",
-      "icon": "australia.svg",
+      "icon": "australia.png",
       "locale": "kms",
       "cities": [
         "Tamworth, NSW",
@@ -281,7 +281,7 @@ export const siteConfig = {
     },
     "nzl": {
       "name": "New Zealand",
-      "icon": "new-zealand.svg",
+      "icon": "new-zealand.png",
       "locale": "kms",
       "cities": [
         "Hamilton",
@@ -295,7 +295,7 @@ export const siteConfig = {
     },
     "ind": {
       "name": "India",
-      "icon": "india.svg",
+      "icon": "india.png",
       "locale": "kms",
       "cities": [
         "Sanquelim, Goa",
@@ -319,7 +319,7 @@ export const siteConfig = {
     },
     "gbr": {
       "name": "United Kingdom",
-      "icon": "united-kingdom.svg",
+      "icon": "united-kingdom.png",
       "locale": "kms",
       "cities": [
         "Manchester",
@@ -333,7 +333,7 @@ export const siteConfig = {
     },
     "fra": {
       "name": "France",
-      "icon": "france.svg",
+      "icon": "france.png",
       "locale": "kms",
       "cities": [
         "Chartres",
@@ -347,7 +347,7 @@ export const siteConfig = {
     },
     "spa": {
       "name": "Spain",
-      "icon": "spain.svg",
+      "icon": "spain.png",
       "locale": "kms",
       "cities": [
         "Plasencia",
