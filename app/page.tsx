@@ -16,7 +16,8 @@ export default function IndexPage() {
         { device !== "Mobile" ? (
           <Search/>
         ) : (
-          <div className="flex container items-center text-xl">Only available on Desktop and Tablet!</div>
+          <div className="text-xl leading-10">
+            Only available on<br/><span className="font-bold">desktop</span> and <span className="font-bold">tablet</span>.</div>
         )}
       </div>
       <div className="flex pb-4 px-8">
