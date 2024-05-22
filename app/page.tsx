@@ -1,15 +1,23 @@
+"use client"
+
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants, Button } from "@/components/ui/button"
 import Search from "@/components/search"
 import { Icons } from "@/components/icons";
+import useDeviceDetection from '../lib/device';
 
 export default function IndexPage() {
+  const device = useDeviceDetection()
   return (
-    <section className="flex flex-col h-full text-lg text-muted-foreground">
+    <section className="flex flex-col h-screen text-lg text-muted-foreground">
       <div className="flex container items-center h-full sm:w-[700px]">
-        <Search/>
+        { device !== "Mobile" ? (
+          <Search/>
+        ) : (
+          <div className="flex container items-center text-xl">Only available on Desktop and Table!</div>
+        )}
       </div>
       <div className="flex pb-4 px-8">
         <div className="w-1/2">

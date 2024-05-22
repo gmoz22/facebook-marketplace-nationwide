@@ -6,7 +6,7 @@ import { Icons } from "@/components/icons";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
+    <header className="absolute top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
             <h1 className="text-lg font-extrabold leading-tight tracking-tighter sm:text-m md:text-2xl xl:text-4xl">
@@ -31,8 +31,9 @@ export function SiteHeader() {
                   </div>
                 </div>
                 </PopoverTrigger>
-              <PopoverContent className="text-sm font-bold text-primary">
+              <PopoverContent className="text-sm font-semibold text-primary">
                 Make sure you are logged into Facebook, that your ad/popup blockers are disabled and that your browser allows opening multiple tabs.
+                <div><br/>May not work on tablets if the Facebook app is installed.</div>
               </PopoverContent>
             </Popover>
             <ThemeToggle />
