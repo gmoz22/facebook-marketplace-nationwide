@@ -12,7 +12,7 @@ export default function IndexPage() {
   const device = useDeviceDetection()
   return (
     <section className="flex flex-col h-screen text-lg text-muted-foreground">
-      { device !== "Mobile" && (
+      { device === "Mobile" && (
         <div className="absolute top-20 left-0 w-full text-center text-xs italic">
           This tool might not work correctly on <span className="font-bold">mobile</span> or <span className="font-bold">tablets</span>!
         </div>
