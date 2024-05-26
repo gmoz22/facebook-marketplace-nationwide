@@ -55,6 +55,7 @@ export const siteConfig = {
     kms: "https://www.facebook.com/marketplace/|CITY|/search?query=|STRING|&radius=500",
   },
   countriesPerRow: 6,
+  countriesPerRowMobile: 4,
   countries: {
     "usa": {
       "name": "USA (without AK or HI)",

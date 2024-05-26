@@ -17,6 +17,8 @@ import {TimedQueue} from '@/lib/timed-queue'
 
 import "@/styles/components/select.css"
 import Image from "next/image";
+import device from "@/lib/device";
+import useDeviceDetection from "@/lib/device";
 
 ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID)
 
@@ -36,6 +38,8 @@ export default function Search() {
   })
   const [itemCondition, setItemCondition] = useState(itemConditionInitialState)
 
+  const device = useDeviceDetection()
+
   useEffect(() => {
     let cookieCountry = getCookie('country')
     if (cookieCountry) {
@@ -44,7 +48,7 @@ export default function Search() {
   }, [country])
 
   const countriesData: Defs.Countries = siteConfig.countries
-  const splitCountriesData = sliceIntoChunks(Object.keys(countriesData), siteConfig.countriesPerRow)
+  const splitCountriesData = sliceIntoChunks(Object.keys(countriesData), device === "Mobile" ? siteConfig.countriesPerRowMobile : siteConfig.countriesPerRow)
   const filterSortBy: Defs.FilterSortBy = siteConfig.filters.sortBy
   const filterItemCondition: Defs.FilterItemCondition = siteConfig.filters.itemCondition
   const filterAvailability: Defs.FilterAvailability = siteConfig.filters.availability

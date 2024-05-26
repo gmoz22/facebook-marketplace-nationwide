@@ -11,16 +11,16 @@ import useDeviceDetection from '../lib/device';
 export default function IndexPage() {
   const device = useDeviceDetection()
   return (
-    <section className="flex flex-col h-screen text-lg text-muted-foreground">
+    <section className="mt-16 flex flex-col text-lg text-muted-foreground">
       { device === "Mobile" && (
-        <div className="absolute top-20 left-0 w-full text-center text-xs italic">
+        <div className="h-8 leading-8 w-full text-center text-xs italic">
           This tool might not work correctly on <span className="font-bold">mobile</span> or <span className="font-bold">tablets</span>!
         </div>
       )}
-      <div className="flex container items-center h-full sm:w-[700px]">
+      <div className="mt-10 flex container items-center h-full sm:w-[700px]">
         <Search />
       </div>
-      <div className="flex pb-4 px-8">
+      <div className="mt-10 flex pb-4 px-8">
         <div className="w-1/2">
           <Link
             href={siteConfig.links.donate}
