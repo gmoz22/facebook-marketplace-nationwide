@@ -12,13 +12,13 @@ export default function IndexPage() {
   const device = useDeviceDetection()
   return (
     <section className="flex flex-col h-screen text-lg text-muted-foreground">
+      { device !== "Mobile" && (
+        <div className="absolute top-20 left-0 w-full text-center text-xs italic">
+          This tool might not work correctly on <span className="font-bold">mobile</span> or <span className="font-bold">tablets</span>!
+        </div>
+      )}
       <div className="flex container items-center h-full sm:w-[700px]">
-        { device !== "Mobile" ? (
-          <Search/>
-        ) : (
-          <div className="text-xl leading-10">
-            Only available on<br/><span className="font-bold">desktop</span> and <span className="font-bold">tablet</span>.</div>
-        )}
+        <Search />
       </div>
       <div className="flex pb-4 px-8">
         <div className="w-1/2">
