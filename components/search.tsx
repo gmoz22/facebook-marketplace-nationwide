@@ -205,7 +205,7 @@ export default function Search() {
           <Button className="ml-8 px-8 my-0 uppercase cursor-pointer" onClick={doSearch}>Search</Button>
         </div>
         <div className="flex flex-row flex-wrap fontSans mt-4">
-          <label className="w-1/4 text-xs">
+          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
             <div className="bg-primary/5 m-1 p-2 rounded">
                 Sort By &nbsp;
               <Select name="sort_by" onValueChange={setSortBy} defaultValue={siteConfig.filters.defaultSortBy}>
@@ -220,7 +220,7 @@ export default function Search() {
               </Select>
             </div>
           </label>
-          <label className="w-1/4 text-xs mb-4">
+          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
             <div className="bg-primary/5 m-1 p-2 rounded">
               Days Since Listed &nbsp;
               <Select name="daysSinceListed" onValueChange={setDaysSinceListed} defaultValue={siteConfig.filters.defaultDaysSinceListed}>
@@ -235,7 +235,7 @@ export default function Search() {
               </Select>
             </div>
           </label>
-          <label className="w-1/4 text-xs mb-4">
+          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
             <div className="bg-primary/5 m-1 p-2 rounded">
               Availability &nbsp;
               <Select name="availability" onValueChange={setAvailability} defaultValue={siteConfig.filters.defaultAvailability}>
@@ -250,7 +250,7 @@ export default function Search() {
               </Select>
               </div>
           </label>
-          <label className="w-1/4 text-xs mb-4">
+          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
             <div className="bg-primary/5 m-1 p-2 rounded">
               Delivery &nbsp;
               <Select name="delivery" onValueChange={setDeliveryMethod} defaultValue={siteConfig.filters.defaultDeliveryMethod}>
@@ -266,7 +266,7 @@ export default function Search() {
             </div>
           </label>
           <span className="w-full h-0"></span>
-          <div className="w-full text-xs bg-primary/5 m-1 mb-4 p-2 rounded">
+          <div className="w-full text-xs bg-primary/5 m-1 mb-2 sm:mb-4 p-2 rounded">
             <div className="mb-3">Condition</div>
             <div className="w-full h-0"></div>
             <div className="w-full flex flex-row">
