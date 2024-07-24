@@ -6,7 +6,7 @@ import Link from "next/link"
 import {siteConfig} from "@/config/site"
 import {cn, sliceIntoChunks} from "@/lib/utils"
 import {Input} from "@/components/ui/input"
-import {Button} from "@/components/ui/button"
+import {Button, buttonVariants} from "@/components/ui/button"
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card"
 import {Checkbox} from "@/components/ui/checkbox"
@@ -24,6 +24,7 @@ ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID)
 
 export default function Search() {
   const [searchTerm, setSearch] = useState("")
+  const [lastSearchTerm, setLastSearchTerm] = useState("")
   const searchThrottle = parseInt(useSearchParams().get('throttle') || '0' as string)
   const [country, setCountry] = useState("usa")
   const [minPrice, setMinPrice] = useState("")
@@ -32,6 +33,7 @@ export default function Search() {
   const [availability, setAvailability] = useState(siteConfig.filters.defaultAvailability)
   const [deliveryMethod, setDeliveryMethod] = useState(siteConfig.filters.defaultDeliveryMethod)
   const [daysSinceListed, setDaysSinceListed] = useState(siteConfig.filters.defaultDaysSinceListed)
+  const [resultLinks, setResultLinks] = useState<any[]>([])
   const itemConditionInitialState: Record<string, boolean> = {}
   Object.keys(siteConfig.filters.itemCondition).map((key) => {
     itemConditionInitialState[key] = false
@@ -93,8 +95,9 @@ export default function Search() {
     let citiesFb = countriesData[country].cities_fb
     let locale: string = countriesData[country].locale
     let jobQueue: TimedQueue = new TimedQueue()
+    let linksHTML: any[] = []
 
-    for (let city of citiesFb) {
+    citiesFb.forEach((city, cityIdx) => {
       let searchURL = siteConfig.templateURL[locale as keyof typeof siteConfig.templateURL]
         .replace('|CITY|', city)
         .replace('|STRING|', searchTerm)
@@ -130,9 +133,30 @@ export default function Search() {
           time: Math.ceil(Math.random() * (jobMaxDelay - jobMinDelay) + jobMinDelay)
         })
       } else {
-        window.open(searchURL, "fbmp" + country + "search" + city)
+       window.open(searchURL, "fbmp" + country + "search" + city)
       }
-    }
+      linksHTML.push(
+        <Link
+          className=" px-2 my-0 cursor-pointer"
+          href={searchURL}
+          target={`fbmp${country}search${city}`}
+        >
+          <div
+            className={cn("mb-2", buttonVariants({
+              size: "sm",
+              variant: "outline",
+            }))}
+          >
+            {countriesData[country].cities[cityIdx]}
+          </div>
+        </Link>
+      )
+
+    })
+
+    setLastSearchTerm(searchTerm)
+    setResultLinks(linksHTML)
+
     if (searchThrottle) jobQueue.start()
 
     ReactGA.event({
@@ -200,6 +224,12 @@ export default function Search() {
   return (
     <>
       <div className="flex flex-col w-full">
+        { device === "Mobile" && !!resultLinks.length && (
+          <div className="inline-block mb-8 text-lg">
+            <div className="text-primary font-bold mb-2">Results for "{lastSearchTerm}", 500 {countriesData[country].locale} radius of: </div>
+            { resultLinks }
+          </div>
+        )}
         <div className="flex flex-row fontSans">
           <Input id="search" className="search text-3xl py-6 text-primary caret-secondary" type="text" value={searchTerm} onChange={updateSearchTerm} onKeyDown={handleKeyPress} placeholder="Search for..." autoFocus />
           <Button className="ml-8 px-8 my-0 uppercase cursor-pointer" onClick={doSearch}>Search</Button>
