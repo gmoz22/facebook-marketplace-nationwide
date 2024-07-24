@@ -12,11 +12,11 @@ export default function IndexPage() {
   const device = useDeviceDetection()
   return (
     <section className="mt-16 flex flex-col text-lg text-muted-foreground">
-      { device === "Mobile" && (
+      {/*{ device === "Mobile" && (
         <div className="h-8 leading-8 w-full text-center text-xs italic">
           This tool might not work correctly on <span className="font-bold">mobile</span> or <span className="font-bold">tablets</span>!
         </div>
-      )}
+      )}*/}
       <div className="mt-10 flex container items-center h-full sm:w-[700px]">
         <Search />
       </div>
