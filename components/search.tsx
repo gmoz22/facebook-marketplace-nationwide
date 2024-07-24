@@ -123,18 +123,22 @@ export default function Search() {
       if (daysSinceListed!==siteConfig.filters.defaultDaysSinceListed)
         searchURL += '&daysSinceListed=' + daysSinceListed
 
-      if (searchThrottle) {
-        let jobMinDelay = searchThrottle - (searchThrottle*0.1)
-        let jobMaxDelay = searchThrottle + (searchThrottle*0.1)
-        jobQueue.addTask({
-          callback: () => {
-            window.open(searchURL, "fbmp" + country + "search" + city)
-          },
-          time: Math.ceil(Math.random() * (jobMaxDelay - jobMinDelay) + jobMinDelay)
-        })
-      } else {
-       window.open(searchURL, "fbmp" + country + "search" + city)
+
+      if (device !== "Mobile") {
+        if (searchThrottle) {
+          let jobMinDelay = searchThrottle - (searchThrottle * 0.1)
+          let jobMaxDelay = searchThrottle + (searchThrottle * 0.1)
+          jobQueue.addTask({
+            callback: () => {
+              window.open(searchURL, "fbmp" + country + "search" + city)
+            },
+            time: Math.ceil(Math.random() * (jobMaxDelay - jobMinDelay) + jobMinDelay)
+          })
+        } else {
+          window.open(searchURL, "fbmp" + country + "search" + city)
+        }
       }
+
       linksHTML.push(
         <Link
           className=" px-2 my-0 cursor-pointer"
@@ -226,7 +230,8 @@ export default function Search() {
       <div className="flex flex-col w-full">
         { device === "Mobile" && !!resultLinks.length && (
           <div className="inline-block mb-8 text-lg">
-            <div className="text-primary font-bold mb-2">Results for "{lastSearchTerm}"<br/> 500 {countriesData[country].locale} radius of: </div>
+            <div className="text-primary font-bold mb-0">Results for "{lastSearchTerm}"</div>
+            <div className="text-sm mb-2"> 500 {countriesData[country].locale} radius of:</div>
             { resultLinks }
           </div>
         )}
