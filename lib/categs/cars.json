@@ -1,0 +1,400 @@
+{
+  "availability": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "npSellerType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minPrice": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "FLOAT"
+  },
+  "maxPrice": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "FLOAT"
+  },
+  "catFriendly": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "carfaxHistory": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "daysSinceListed": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "dealerBranch": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "deliveryMethod": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "dogFriendly": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "isC2CListingOnly": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "isFurnished": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "headerOverride": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "maxBathrooms": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "maxBedrooms": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "maxAreaSize": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "maxMileage": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "maxRooms": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "maxYear": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minBathrooms": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minBedrooms": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minAreaSize": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minMileage": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minMPG": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minRooms": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minSafetyRating": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minSeatingCapacity": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "minYear": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "prefilledRating": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "INT"
+  },
+  "privateRoomBathroomType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "propertyType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "pivots": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "sortBy": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "make": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "model": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "carType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "topLevelVehicleType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "transmissionType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "rentalRoomType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "saleType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "sellerType": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "itemCondition": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "constructionStatus": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "contextual": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING_TO_STRING_MAP"
+  },
+  "vehicleExteriorColors": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "vehicleInteriorColors": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "query": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "notif_id": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "notif_t": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "referral_code": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "referral_story_type": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "ENUM"
+  },
+  "merchantId": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "STRING"
+  },
+  "ref": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": true,
+    "coercibleType": "STRING"
+  },
+  "hoisted_items": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false
+  },
+  "seller_profile": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": true,
+    "coercibleType": "FBID"
+  },
+  "source": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": true,
+    "coercibleType": "STRING"
+  },
+  "unavailable_product": {
+    "legacyNames": [],
+    "default": null,
+    "path": false,
+    "significant": false,
+    "coercibleType": "INT"
+  }
+}

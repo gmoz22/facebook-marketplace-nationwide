@@ -230,7 +230,7 @@ export default function Search() {
       <div className="flex flex-col w-full">
         { device === "Mobile" && !!resultLinks.length && (
           <div className="inline-block mb-8 text-lg">
-            <div className="text-primary font-bold mb-0">Results for "{lastSearchTerm}"</div>
+            <div className="text-primary font-bold mb-0">Results for &quot;{lastSearchTerm}&quot;</div>
             <div className="text-sm mb-2"> 500 {countriesData[country].locale} radius of:</div>
             { resultLinks }
           </div>
