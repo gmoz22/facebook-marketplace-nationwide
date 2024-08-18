@@ -15,8 +15,9 @@ export const siteConfig = {
     github: "https://github.com/gmoz22/facebook-marketplace-nationwide",
   },
   filters: {
-    defaultDeliveryMethod: "local_pick_up",
+    defaultDeliveryMethod: "all",
     deliveryMethod: {
+      all: "All",
       local_pick_up: "Local Pickup",
       shipping: "Shipping"
     },

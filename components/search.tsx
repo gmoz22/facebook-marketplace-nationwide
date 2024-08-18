@@ -117,8 +117,7 @@ export default function Search() {
       if (availability!==siteConfig.filters.defaultAvailability)
         searchURL += '&availability=' + availability
 
-      if (deliveryMethod!=siteConfig.filters.defaultDeliveryMethod)
-        searchURL += '&deliveryMethod=' + deliveryMethod
+      searchURL += '&deliveryMethod=' + deliveryMethod
 
       if (daysSinceListed!==siteConfig.filters.defaultDaysSinceListed)
         searchURL += '&daysSinceListed=' + daysSinceListed
