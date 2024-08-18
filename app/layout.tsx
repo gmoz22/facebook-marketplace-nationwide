@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  authors: [{ name: "GMOZ.biz", url: "http://www.gmoz.biz" }],
-  creator: "GMOZ.biz",
+  authors: [{ name: "Steve Oziel", url: "https://www.steveinnovates.com" }],
+  creator: "Steve Oziel",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [{
-      url: "/share.jpg",
+      url: "/share.png",
     }],
   }
 }
