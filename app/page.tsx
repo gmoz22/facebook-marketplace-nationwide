@@ -17,11 +17,11 @@ export default function IndexPage() {
           This tool might not work correctly on <span className="font-bold">mobile</span> or <span className="font-bold">tablets</span>!
         </div>
       )}*/}
-      <div className="mt-10 flex container items-center h-full sm:w-[700px]">
+      <div className="container mt-10 flex h-full items-center sm:w-[700px]">
         <Search />
       </div>
-      <div className="mt-10 flex pb-4 px-8">
-        <div className="w-1/2">
+      <div className="mt-10 flex px-8 pb-4">
+        <div className="w-1/3">
           <Link
             href={siteConfig.links.donate}
             target="_blank"
@@ -33,12 +33,15 @@ export default function IndexPage() {
                 variant: "ghost",
               })}
             >
-              <Icons.donate className="h-5 w-5"/> <span className="pl-2">Support</span>
+              <Icons.donate className="size-5"/> <span className="pl-2">Support</span>
               <span className="sr-only">Donate</span>
             </div>
           </Link>
         </div>
-        <div className="w-1/2 text-right">
+        <div className="w-1/3 text-center text-xs italic">
+          All trademarks used are the property of their respective owners, <br className="hidden xl:inline-block"/>and their use here does not imply endorsement.
+        </div>
+        <div className="w-1/3 text-right">
           <Link
             href={siteConfig.links.github}
             target="_blank"
@@ -50,7 +53,7 @@ export default function IndexPage() {
                 variant: "ghost",
               })}
             >
-              <Icons.gitHub className="h-5 w-5"/> <span className="pl-2">by @gmoz22</span>
+              <Icons.gitHub className="size-5"/> <span className="pl-2">by @gmoz22</span>
             </div>
           </Link>
         </div>

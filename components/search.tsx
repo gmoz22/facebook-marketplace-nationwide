@@ -140,7 +140,7 @@ export default function Search() {
 
       linksHTML.push(
         <Link
-          className=" px-2 my-0 cursor-pointer"
+          className=" my-0 cursor-pointer px-2"
           href={searchURL}
           target={`fbmp${country}search${city}`}
         >
@@ -167,7 +167,7 @@ export default function Search() {
       action: `search_${country}`,
       label: searchTerm
     })
-  }, [searchTerm, country, countriesData, sortBy, itemCondition, availability, daysSinceListed, minPrice, maxPrice, deliveryMethod, searchThrottle])
+  }, [device, searchTerm, country, countriesData, sortBy, itemCondition, availability, daysSinceListed, minPrice, maxPrice, deliveryMethod, searchThrottle])
 
   const handleKeyPress = useCallback(
     (e: KeyboardEvent<HTMLInputElement>) => {
@@ -184,11 +184,11 @@ export default function Search() {
   function countryDataRow(row: Array<string>) {
     return (
       row.map((key: string) => (
-          <div className={cn("w-1/"+siteConfig.countriesPerRow, "text-center mx-auto flex-none")} key={key}>
+          <div className={cn("w-1/"+siteConfig.countriesPerRow, "mx-auto flex-none text-center")} key={key}>
             <HoverCard>
               <HoverCardTrigger>
                 <Button
-                  className={cn("p-2 cursor-pointer w-16", (key === country) ? 'bg-secondary' : '')}
+                  className={cn("w-16 cursor-pointer p-2", (key === country) ? 'bg-secondary' : '')}
                   variant="outline"
                   onClick={() => setCountryAndCookie(key)}>
                   <Image width={64} height={64} src={`./flags/${countriesData[key].icon}`} alt={countriesData[key].name} />
@@ -196,8 +196,8 @@ export default function Search() {
               </HoverCardTrigger>
               <HoverCardContent className="text-sm">
                 Searches <span
-                className="text-primary font-bold whitespace-nowrap">{countriesData[key].name}</span> nationwide by opening <b className="whitespace-nowrap">{countriesData[key].cities.length} tabs</b>. <Link
-                className="underline text-xs" href={countriesData[key].coverage} title={countriesData[key].cities.join('\n')} target="_blank" rel="noreferrer">See
+                className="whitespace-nowrap font-bold text-primary">{countriesData[key].name}</span> nationwide by opening <b className="whitespace-nowrap">{countriesData[key].cities.length} tabs</b>. <Link
+                className="text-xs underline" href={countriesData[key].coverage} title={countriesData[key].cities.join('\n')} target="_blank" rel="noreferrer">See
                 coverage</Link>
               </HoverCardContent>
             </HoverCard>
@@ -226,24 +226,24 @@ export default function Search() {
 
   return (
     <>
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         { device === "Mobile" && !!resultLinks.length && (
-          <div className="inline-block mb-8 text-lg">
-            <div className="text-primary font-bold mb-0">Results for &quot;{lastSearchTerm}&quot;</div>
-            <div className="text-sm mb-2"> 500 {countriesData[country].locale} radius of:</div>
+          <div className="mb-8 inline-block text-lg">
+            <div className="mb-0 font-bold text-primary">Results for &quot;{lastSearchTerm}&quot;</div>
+            <div className="mb-2 text-sm"> 500 {countriesData[country].locale} radius of:</div>
             { resultLinks }
           </div>
         )}
-        <div className="flex flex-row fontSans">
-          <Input id="search" className="search text-3xl py-6 text-primary caret-secondary" type="text" value={searchTerm} onChange={updateSearchTerm} onKeyDown={handleKeyPress} placeholder="Search for..." autoFocus />
-          <Button className="ml-8 px-8 my-0 uppercase cursor-pointer" onClick={doSearch}>Search</Button>
+        <div className="fontSans flex flex-row">
+          <Input id="search" className="search py-6 text-3xl text-primary caret-secondary" type="text" value={searchTerm} onChange={updateSearchTerm} onKeyDown={handleKeyPress} placeholder="Search for..." autoFocus />
+          <Button className="my-0 ml-8 cursor-pointer px-8 uppercase" onClick={doSearch}>Search</Button>
         </div>
-        <div className="flex flex-row flex-wrap fontSans mt-4">
-          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
-            <div className="bg-primary/5 m-1 p-2 rounded">
+        <div className="fontSans mt-4 flex flex-row flex-wrap">
+          <label className="mb-1 w-full text-xs sm:mb-4 sm:w-1/4">
+            <div className="m-1 rounded bg-primary/5 p-2">
                 Sort By &nbsp;
               <Select name="sort_by" onValueChange={setSortBy} defaultValue={siteConfig.filters.defaultSortBy}>
-                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 bg-transparent">
+                <SelectTrigger className="mt-1 cursor-pointer bg-transparent p-0 text-primary">
                   <SelectValue placeholder="Sort By" />
                 </SelectTrigger>
                 <SelectContent>
@@ -254,11 +254,11 @@ export default function Search() {
               </Select>
             </div>
           </label>
-          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
-            <div className="bg-primary/5 m-1 p-2 rounded">
+          <label className="mb-1 w-full text-xs sm:mb-4 sm:w-1/4">
+            <div className="m-1 rounded bg-primary/5 p-2">
               Days Since Listed &nbsp;
               <Select name="daysSinceListed" onValueChange={setDaysSinceListed} defaultValue={siteConfig.filters.defaultDaysSinceListed}>
-                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none bg-transparent">
+                <SelectTrigger className="mt-1 cursor-pointer bg-transparent p-0 text-primary focus-visible:outline-none">
                   <SelectValue placeholder="Days Since Listed" />
                 </SelectTrigger>
                 <SelectContent>
@@ -269,11 +269,11 @@ export default function Search() {
               </Select>
             </div>
           </label>
-          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
-            <div className="bg-primary/5 m-1 p-2 rounded">
+          <label className="mb-1 w-full text-xs sm:mb-4 sm:w-1/4">
+            <div className="m-1 rounded bg-primary/5 p-2">
               Availability &nbsp;
               <Select name="availability" onValueChange={setAvailability} defaultValue={siteConfig.filters.defaultAvailability}>
-                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none bg-transparent">
+                <SelectTrigger className="mt-1 cursor-pointer bg-transparent p-0 text-primary focus-visible:outline-none">
                   <SelectValue placeholder="Availability" />
                 </SelectTrigger>
                 <SelectContent>
@@ -284,11 +284,11 @@ export default function Search() {
               </Select>
               </div>
           </label>
-          <label className="w-full sm:w-1/4 text-xs mb-1 sm:mb-4">
-            <div className="bg-primary/5 m-1 p-2 rounded">
+          <label className="mb-1 w-full text-xs sm:mb-4 sm:w-1/4">
+            <div className="m-1 rounded bg-primary/5 p-2">
               Delivery &nbsp;
               <Select name="delivery" onValueChange={setDeliveryMethod} defaultValue={siteConfig.filters.defaultDeliveryMethod}>
-                <SelectTrigger className="cursor-pointer text-primary mt-1 p-0 focus-visible:outline-none bg-transparent">
+                <SelectTrigger className="mt-1 cursor-pointer bg-transparent p-0 text-primary focus-visible:outline-none">
                   <SelectValue placeholder="Delivery" />
                 </SelectTrigger>
                 <SelectContent>
@@ -299,27 +299,27 @@ export default function Search() {
               </Select>
             </div>
           </label>
-          <span className="w-full h-0"></span>
-          <div className="w-full text-xs bg-primary/5 m-1 mb-2 sm:mb-4 p-2 rounded">
+          <span className="h-0 w-full"></span>
+          <div className="m-1 mb-2 w-full rounded bg-primary/5 p-2 text-xs sm:mb-4">
             <div className="mb-3">Condition</div>
-            <div className="w-full h-0"></div>
-            <div className="w-full flex flex-row">
+            <div className="h-0 w-full"></div>
+            <div className="flex w-full flex-row">
             { Object.keys(filterItemCondition).map((conditionKey: any) => (
               <div key={conditionKey} className="w-1/4">
                 <label
                   className="mr-4 cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  <Checkbox name="condition" id={`condition_${conditionKey}`} className="border-solid cursor-pointer mr-2" onCheckedChange={(checked) => updateConditions(conditionKey, checked as boolean)} />
+                  <Checkbox name="condition" id={`condition_${conditionKey}`} className="mr-2 cursor-pointer border-solid" onCheckedChange={(checked) => updateConditions(conditionKey, checked as boolean)} />
                   <span className="">{filterItemCondition[conditionKey]}</span>
                 </label>
               </div>
             ))}
             </div>
           </div>
-          <span className="w-full h-0"></span>
-          <div className="w-full text-xs flex flex-row bg-primary/5 m-1 mb-4 p-2 rounded">
-            <label className="w-1/2"><span className="mr-2 text-xs w-1/3">Min. Price</span><Input className="prices w-2/3 bg-transparent flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="minPrice" type="number" min="0" value={minPrice} onChange={updateMinPrice} /></label>
-            <label className="w-1/2 ml-6"><span className="mr-2 text-xs w-1/3">Max. Price</span><Input className="prices w-2/3 bg-transparent flex-none text-sm h-8 p-1 mt-2 text-primary caret-secondary" id="maxPrice" type="number" min="0" value={maxPrice} onChange={updateMaxPrice} /></label>
+          <span className="h-0 w-full"></span>
+          <div className="m-1 mb-4 flex w-full flex-row rounded bg-primary/5 p-2 text-xs">
+            <label className="w-1/2"><span className="mr-2 w-1/3 text-xs">Min. Price</span><Input className="prices mt-2 h-8 w-2/3 flex-none bg-transparent p-1 text-sm text-primary caret-secondary" id="minPrice" type="number" min="0" value={minPrice} onChange={updateMinPrice} /></label>
+            <label className="ml-6 w-1/2"><span className="mr-2 w-1/3 text-xs">Max. Price</span><Input className="prices mt-2 h-8 w-2/3 flex-none bg-transparent p-1 text-sm text-primary caret-secondary" id="maxPrice" type="number" min="0" value={maxPrice} onChange={updateMaxPrice} /></label>
           </div>
         </div>
         <div>
