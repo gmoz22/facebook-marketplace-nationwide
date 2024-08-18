@@ -38,10 +38,7 @@ export default function IndexPage() {
             </div>
           </Link>
         </div>
-        <div className="w-1/3 text-center text-xs italic">
-          All trademarks used are the property of their respective owners, <br className="hidden xl:inline-block"/>and their use here does not imply endorsement.
-        </div>
-        <div className="w-1/3 text-right">
+        <div className="w-1/2 text-right">
           <Link
             href={siteConfig.links.github}
             target="_blank"

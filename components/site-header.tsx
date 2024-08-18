@@ -36,15 +36,9 @@ export function SiteHeader() {
                   </div>
                 </div>
                 </PopoverTrigger>
-              <PopoverContent className="space-y-4 text-sm text-primary">
-                <p className="italic">May not work on tablets if the Facebook app is installed.</p>
-                <p className="text-lg">Make sure you are logged into Facebook, that your ad/popup blockers are disabled and that <span className="font-semibold">your browser allows opening multiple tabs</span>:</p>
-                <p><span className="font-semibold">Google Chrome</span><br/>
-                Go to Settings {">"} Privacy and security {">"} Content {">"} Pop-ups and redirects and manually add the site &quot;https://www.browsemarketplaces.com&quot; to the list of sites &quot;allowed to send pop-ups and use redirects&quot;.</p>
-                <p><span className="font-semibold">Firefox</span><br/>
-                When you search in the tool it should tell you under the URL bar that you are about to open X pop-up windows and you can go to the preferences button to allow pop-ups for this website.</p>
-                <p><span className="font-semibold">Safari</span><br/>
-                On the tab where you searched you will see at the end of the URL bar an icon with 2 windows superimposed. When you click on it, the missing tabs will open up and in the future they won&apos;t be blocked.</p>
+              <PopoverContent className="text-sm font-semibold text-primary">
+                Make sure you are logged into Facebook, that your ad/popup blockers are disabled and that your browser allows opening multiple tabs.
+                <div><br/>May not work on tablets if the Facebook app is installed.</div>
               </PopoverContent>
             </Popover>
             <ThemeToggle />
