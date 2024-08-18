@@ -21,7 +21,7 @@ export default function IndexPage() {
         <Search />
       </div>
       <div className="mt-10 flex pb-4 px-8">
-        <div className="w-1/2">
+        <div className="w-1/3">
           <Link
             href={siteConfig.links.donate}
             target="_blank"
@@ -38,7 +38,10 @@ export default function IndexPage() {
             </div>
           </Link>
         </div>
-        <div className="w-1/2 text-right">
+        <div className="w-1/3 text-xs text-center italic">
+          All trademarks used are the property of their respective owners, <br className="hidden xl:inline-block"/>and their use here does not imply endorsement.
+        </div>
+        <div className="w-1/3 text-right">
           <Link
             href={siteConfig.links.github}
             target="_blank"
