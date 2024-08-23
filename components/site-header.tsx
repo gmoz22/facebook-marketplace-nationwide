@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { buttonVariants } from "@/components/ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Icons } from "@/components/icons";
+import {cn} from "@/lib/utils";
 
 export function SiteHeader() {
   return (
@@ -14,25 +15,27 @@ export function SiteHeader() {
               Browse <span className="text-secondary">Marketplaces</span>
             </h2>
             <h4 className="md:text-md text-xs font-extrabold leading-tight tracking-tighter sm:text-sm">
-              Search the <span className="text-secondary">Facebook <sup className="mb-8 text-[0.5em]">TM</sup> Marketplace</span> nationwide!
+              Search the <span className="text-secondary uppercase">Facebook <sup className="mb-8 text-[0.5em]">TM</sup> Marketplace</span> nationwide!
             </h4>
           </div>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             <Popover>
-              <PopoverTrigger>
+              <PopoverTrigger className="">
                 <Icons.help className="block size-6 sm:hidden" />
-                <div className="hidden sm:block">
+                <div className="hidden cursor-pointer sm:block ">
                   <div
                     className={
-                      buttonVariants({
-                      size: "sm",
-                      variant: "outline",
-                    })
-                  }
+                      cn(
+                        buttonVariants({
+                        size: "sm",
+                        variant: "outline",
+                      }),
+                      "dark:bg-secondary light:text-secondary")
+                    }
                   >
-                    <span className="text-secondary">How To Use</span>
+                    <span className="light:text-secondary">How To Use</span>
                   </div>
                 </div>
               </PopoverTrigger>

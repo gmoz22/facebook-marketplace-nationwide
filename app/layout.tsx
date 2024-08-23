@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon-16x16.png",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
     apple: "/apple-touch-icon.png"
   },
   metadataBase: new URL(siteConfig.url),

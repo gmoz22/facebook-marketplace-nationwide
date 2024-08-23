@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   url: "https://www.browsemarketplaces.com",
-  name: "Browse Marketplaces: Facebook Marketplace Nationwide Search",
+  name: "Browse Marketplaces: Nationwide Search for the Facebook Marketplace",
   description: "Search the Facebook Marketplace across all of USA, Canada, Mexico, Brazil, Argentina, Australia, New Zealand, India, United Kingdom, France and Spain.",
   mainNav: [
     {

@@ -22,7 +22,7 @@
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 215 100% 60%;
+    --secondary: 269 60% 50%;
     --secondary-foreground: 228 100% 10%;
 
     --accent: 210 40% 96.1%;
@@ -31,7 +31,7 @@
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --ring: 215, 100%, 60%;
+    --ring: 269 60% 50%;
 
     --radius: 0.5rem;
   }
@@ -58,13 +58,13 @@
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
 
-    --secondary: 215 100% 60%;
+    --secondary: 269 60% 50%;
     --secondary-foreground: 200 90% 100%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --ring: 215, 100%, 60%;
+    --ring: 269 60% 50%;
 
     --radius: 0.5rem;
   }
