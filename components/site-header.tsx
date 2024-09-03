@@ -11,9 +11,9 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
           <div>
-            <h2 className="sm:text-m text-lg font-extrabold leading-tight tracking-tighter md:text-2xl xl:text-4xl">
+            <h1 className="sm:text-m text-lg font-extrabold leading-tight tracking-tighter md:text-2xl xl:text-4xl">
               Browse <span className="text-secondary">Marketplaces</span>
-            </h2>
+            </h1>
             <h4 className="md:text-md text-xs font-extrabold leading-tight tracking-tighter sm:text-sm">
               Search the <span className="text-secondary uppercase">Facebook <sup className="mb-8 text-[0.5em]">TM</sup> Marketplace</span> nationwide!
             </h4>
