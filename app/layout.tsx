@@ -8,6 +8,15 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": siteConfig.name,
+  "description": siteConfig.description,
+  "image": siteConfig.url+"/share.jpg",
+  "url": siteConfig.url
+}
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -63,6 +72,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <div>{children}</div>
             </div>
           </ThemeProvider>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}} />
         </body>
       </html>
     </>
