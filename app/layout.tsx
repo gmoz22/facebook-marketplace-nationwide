@@ -8,8 +8,9 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import Script from "next/script"
+import dotenv from "dotenv"
 
-
+dotenv.config()
 
 const jsonLd = {
   "@context": "https://schema.org",
