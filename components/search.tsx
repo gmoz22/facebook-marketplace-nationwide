@@ -167,6 +167,9 @@ export default function Search() {
       action: `search_${country}`,
       label: searchTerm
     })
+    // @ts-ignore umami is defined in the global scope via the umami script
+    window.umami.track(`search_${country}`, { searchTerm: searchTerm })
+    
   }, [device, searchTerm, country, countriesData, sortBy, itemCondition, availability, daysSinceListed, minPrice, maxPrice, deliveryMethod, searchThrottle])
 
   const handleKeyPress = useCallback(
