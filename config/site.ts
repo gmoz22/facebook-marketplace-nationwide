@@ -333,19 +333,19 @@ export const siteConfig = {
       ],
       "coverage": "https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B500000%2C53.4403605%2C-2.228909%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C58.9934518%2C-2.932034%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D",
     },
-    "ita": {
+     "ita": {
       "name": "Italy",
       "icon": "italy.png",
       "locale": "kms",
       "cities": [
-        "Pitigliano",
-        "San Costantino Calabro",
+        "Firenze",
+        "Napoli",
       ],
       "cities_fb": [
-        "103712123000662",
-        "108225035864565",
+        "105782926129203",
+        "115247758487174",
       ],
-      "coverage": "https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B500000%2C42.634827%2C11.673549%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C38.6335236%2C16.0711281%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D",
+      "coverage": "https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B500000%2C43.765407%2C11.2546077%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C40.8383112%2C14.2794485%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D",
     },
     "fra": {
       "name": "France",
