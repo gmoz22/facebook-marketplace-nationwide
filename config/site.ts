@@ -4,6 +4,11 @@ export const siteConfig = {
   url: "https://www.browsemarketplaces.com",
   name: "Browse Marketplaces: Nationwide Search for the Facebook Marketplace",
   description: "Search the Facebook Marketplace across all of USA, Canada, Mexico, Brazil, Argentina, Australia, New Zealand, India, United Kingdom, Italy, France, Spain and South Africa.",
+  newsInfoMessages: [
+    "<b>Oct. 20</b> <span>|</span> Support for South Africa added.",
+    "<b>Oct. 19</b> <span>|</span> Support for Italy added.",
+    "<b>Oct. 18</b> <span>|</span> <strong>Server down.</strong> Issue fixed and server resources upgraded.",
+  ],
   mainNav: [
     {
       title: "Home",

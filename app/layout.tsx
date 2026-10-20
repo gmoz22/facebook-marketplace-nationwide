@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import { Analytics } from "@/components/analytics"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { NewsInfoBar } from "@/components/news-info-bar"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const jsonLd = {
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <Header />
               <div>{children}</div>
               <Footer />
+              <NewsInfoBar />
             </div>
           </ThemeProvider>
           <Analytics />

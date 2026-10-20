@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 95%;
     --foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -37,7 +37,7 @@
   }
 
   .dark {
-    --background: 224 71% 4%;
+    --background: 213 31% 5%;
     --foreground: 213 31% 91%;
 
     --muted: 223 47% 11%;
@@ -91,4 +91,57 @@
 
 .prices {
   display: inline;
+}
+
+@keyframes news-info-enter {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes news-info-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.news-info-message p b {
+  font-weight: bold;
+  color: hsl(var(--secondary));
+}
+.news-info-message p span {
+  color: hsl(var(--muted-foreground));
+  margin: 0 0.5rem 0 0.5rem;
+}
+.news-info-message p strong {
+  color: #FF0000;
+  font-weight: normal;
+}
+.dark .news-info-message p strong {
+  color: #EE0000;
+}
+
+.news-info-message-enter {
+  animation: news-info-enter 400ms ease-out both;
+}
+
+.news-info-message-exit {
+  animation: news-info-exit 400ms ease-in both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-info-message-enter,
+  .news-info-message-exit {
+    animation: none;
+  }
 }

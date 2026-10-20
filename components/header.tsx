@@ -7,7 +7,7 @@ import {cn} from "@/lib/utils";
 
 export function Header() {
   return (
-    <header className="absolute top-0 z-40 w-full border-b bg-background">
+    <header className="absolute top-0 z-40 w-full border-b bg-neutral-200 dark:bg-black">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
           <div>
