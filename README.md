@@ -14,6 +14,7 @@ You must be logged into Facebook, disable your ad/popup blockers, allow browser 
 <img src="public/flags/australia.png" alt="Australia flag" width="20"> Australia<br/>
 <img src="public/flags/brazil.png" alt="Brazil flag" width="20"> Brazil<br/>
 <img src="public/flags/canada.png" alt="Canada flag" width="20"> Canada<br/>
+<img src="public/flags/italy.png" alt="Italy flag" width="20"> Italy<br/>
 <img src="public/flags/france.png" alt="France flag" width="20"> France<br/>
 <img src="public/flags/india.png" alt="India flag" width="20"> India<br/>
 <img src="public/flags/mexico.png" alt="Mexico flag" width="20"> Mexico<br/>
@@ -26,10 +27,11 @@ You must be logged into Facebook, disable your ad/popup blockers, allow browser 
 _Sample coverage (USA lower 48):<br/>_
 <img src="public/coverage-usa.jpg" alt="USA flag" width="400">
 
-_Thanks to @kylemd, @jnsjunior, @kwbr1_
+_Thanks to @kylemd, @jnsjunior, @kwbr1_, @The-Man11
 
 ### Changelog
 
+* 2025-07-29 – Support for Italy by @The-Man11
 * 2024-05-14 – `?throttle=` URL param in milliseconds to delay tab opening
 * 2024-05-12 – Delivery search filter (stealth), UI & search params tweaks, hidden `?throttle=1` URL param
 * 2024-05-11 – Search filters: Sort By, Condition, Availability, Days Since Listed
@@ -51,4 +53,3 @@ _Thanks to @kylemd, @jnsjunior, @kwbr1_
 
 ### Made With
 <img src="https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /> <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" />
-
