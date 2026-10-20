@@ -234,8 +234,8 @@ export default function Search() {
           </div>
         )}
         <div className="fontSans flex flex-row">
-          <Input id="search" className="search py-6 text-3xl text-primary caret-secondary" type="text" value={searchTerm} onChange={updateSearchTerm} onKeyDown={handleKeyPress} placeholder="Search for..." autoFocus />
-          <Button className="my-0 ml-8 cursor-pointer px-8 uppercase" onClick={doSearch}>Search</Button>
+          <Input id="search" className="search py-6 text-xl text-primary caret-secondary" type="text" value={searchTerm} onChange={updateSearchTerm} onKeyDown={handleKeyPress} placeholder="Search for..." autoFocus />
+          <Button className="my-0 ml-4 cursor-pointer px-6 uppercase bg-purple-500 text-white transition-colors duration-300 hover:bg-secondary bold lg:text-xl text-sm" onClick={doSearch}>Search</Button>
         </div>
         <div className="fontSans mt-4 flex flex-row flex-wrap">
           <label className="mb-1 w-full text-xs sm:mb-4 sm:w-1/4">
