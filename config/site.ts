@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   url: "https://www.browsemarketplaces.com",
   name: "Browse Marketplaces: Nationwide Search for the Facebook Marketplace",
-  description: "Search the Facebook Marketplace across all of USA, Canada, Mexico, Brazil, Argentina, Australia, New Zealand, India, United Kingdom, Italy, France and Spain.",
+  description: "Search the Facebook Marketplace across all of USA, Canada, Mexico, Brazil, Argentina, Australia, New Zealand, India, United Kingdom, Italy, France, Spain and South Africa.",
   mainNav: [
     {
       title: "Home",
@@ -360,6 +360,24 @@ export const siteConfig = {
         "2404588816444858",
       ],
       "coverage": "https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B500000%2C40.0300176%2C-6.0854631%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C39.4400399%2C-0.4076288%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D",
+    },
+    "rsa": {
+      "name": "South Africa",
+      "icon": "south-africa.png",
+      "locale": "kms",
+      "cities": [
+        "Pretoria",
+        "Cape Town",
+        "Komani",
+        "Upington"
+      ],
+      "cities_fb": [
+        "100774867982813",
+        "144985128871748",
+        "112397888775028",
+        "107995562562794",
+      ],
+      "coverage": "https://www.mapdevelopers.com/draw-circle-tool.php?circles=%5B%5B500000%2C-26.2317259%2C29.2714638%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C-31.8966547%2C26.8666181%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C-28.4848747%2C21.2487564%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%2C%5B500000%2C-34.0043836%2C18.3560593%2C%22%23AAAAAA%22%2C%22%23000000%22%2C0.4%5D%5D",
     },
   }
 }

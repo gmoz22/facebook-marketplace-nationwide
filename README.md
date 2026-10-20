@@ -10,22 +10,23 @@ You must be logged into Facebook, disable your ad/popup blockers, allow browser 
 
 ### Countries supported
 
-<img src="public/flags/argentina.png" alt="Argentina flag" width="20"> Argentina<br/>
-<img src="public/flags/australia.png" alt="Australia flag" width="20"> Australia<br/>
-<img src="public/flags/brazil.png" alt="Brazil flag" width="20"> Brazil<br/>
-<img src="public/flags/canada.png" alt="Canada flag" width="20"> Canada<br/>
-<img src="public/flags/italy.png" alt="Italy flag" width="20"> Italy<br/>
-<img src="public/flags/france.png" alt="France flag" width="20"> France<br/>
-<img src="public/flags/india.png" alt="India flag" width="20"> India<br/>
-<img src="public/flags/mexico.png" alt="Mexico flag" width="20"> Mexico<br/>
-<img src="public/flags/new-zealand.png" alt="New Zealand flag" width="20"> New Zealand<br/>
-<img src="public/flags/spain.png" alt="Spain flag" width="20"> Spain<br/>
-<img src="public/flags/united-kingdom.png" alt="United Kingdom flag" width="20"> United Kingdom<br/>
-<img src="public/flags/usa_48.png" alt="USA 48 states flag" width="20"> USA lower 48 states<br/>
-<img src="public/flags/usa.png" alt="USA flag" width="20"> USA all 50 states<br/>
+<img src="public/flags/argentina.png" alt="Flag of Argentina" width="20"> Argentina<br/>
+<img src="public/flags/australia.png" alt="Flag of Australia" width="20"> Australia<br/>
+<img src="public/flags/brazil.png" alt="Flag of Brazil" width="20"> Brazil<br/>
+<img src="public/flags/canada.png" alt="Flag of Canada" width="20"> Canada<br/>
+<img src="public/flags/italy.png" alt="Flag of Italy" width="20"> Italy<br/>
+<img src="public/flags/france.png" alt="Flag of France" width="20"> France<br/>
+<img src="public/flags/india.png" alt="Flag of India" width="20"> India<br/>
+<img src="public/flags/mexico.png" alt="Flag of Mexico" width="20"> Mexico<br/>
+<img src="public/flags/new-zealand.png" alt="Flag of New Zealand" width="20"> New Zealand<br/>
+<img src="public/flags/spain.png" alt="Flag of Spain" width="20"> Spain<br/>
+<img src="public/flags/south-africa.png" alt="Flag of South Africa" width="20"> South Africa<br/>
+<img src="public/flags/united-kingdom.png" alt="Flag of United Kingdom" width="20"> United Kingdom<br/>
+<img src="public/flags/usa_48.png" alt="Flag of USA 48 states" width="20"> USA lower 48 states<br/>
+<img src="public/flags/usa.png" alt="Flag of USA" width="20"> USA all 50 states<br/>
 
 _Sample coverage (USA lower 48):<br/>_
-<img src="public/coverage-usa.jpg" alt="USA flag" width="400">
+<img src="public/coverage-usa.jpg" alt="USA map with coverage" width="400">
 
 _Thanks to @kylemd, @jnsjunior, @kwbr1_, @The-Man11
 
