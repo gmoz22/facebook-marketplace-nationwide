@@ -1,6 +1,6 @@
 'use client'
 
-import {ChangeEvent, JSX, KeyboardEvent, useCallback, useEffect, useState} from 'react'
+import {ChangeEvent, JSX, KeyboardEvent, useCallback, useState, useSyncExternalStore} from 'react'
 import * as Defs from '@/lib/defs'
 import Link from "next/link"
 import {siteConfig} from "@/config/site"
@@ -10,23 +10,24 @@ import {Button, buttonVariants} from "@/components/ui/button"
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card"
 import {Checkbox} from "@/components/ui/checkbox"
-import {getCookie, setCookie} from "@/components/cookies"
+import {getCookie, setCookie, subscribeToCookies} from "@/components/cookies"
 import ReactGA from "react-ga4"
 import {useSearchParams} from 'next/navigation'
 import {TimedQueue} from '@/lib/timed-queue'
 
 import "@/styles/components/select.css"
 import Image from "next/image";
-import device from "@/lib/device";
 import useDeviceDetection from "@/lib/device";
-
-ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID)
 
 export default function Search() {
   const [searchTerm, setSearch] = useState("")
   const [lastSearchTerm, setLastSearchTerm] = useState("")
   const searchThrottle = parseInt(useSearchParams().get('throttle') || '0' as string)
-  const [country, setCountry] = useState("usa")
+  const country = useSyncExternalStore(
+    subscribeToCookies,
+    () => getCookie("country") || "usa",
+    () => "usa"
+  )
   const [minPrice, setMinPrice] = useState("")
   const [maxPrice, setMaxPrice] = useState("")
   const [sortBy, setSortBy] = useState(siteConfig.filters.defaultSortBy)
@@ -41,13 +42,6 @@ export default function Search() {
   const [itemCondition, setItemCondition] = useState(itemConditionInitialState)
 
   const device = useDeviceDetection()
-
-  useEffect(() => {
-    let cookieCountry = getCookie('country')
-    if (cookieCountry) {
-      setCountry(cookieCountry)
-    }
-  }, [country])
 
   const countriesData: Defs.Countries = siteConfig.countries
   const splitCountriesData = sliceIntoChunks(Object.keys(countriesData), device === "Mobile" ? siteConfig.countriesPerRowMobile : siteConfig.countriesPerRow)
@@ -76,17 +70,12 @@ export default function Search() {
     }, []
   )
   const updateConditions = (itemIndex: string, isChecked: boolean) => {
-    const updatedListOfItems: Record<string, boolean> = itemCondition
-    updatedListOfItems[itemIndex] = isChecked
-    setItemCondition(updatedListOfItems)
+    setItemCondition((previous) => ({ ...previous, [itemIndex]: isChecked }))
   }
 
   function setCountryAndCookie(newCountry: string) {
     if (newCountry!=getCookie('country')) {
       setCookie('country', newCountry)
-    }
-    if (newCountry!=country) {
-      setCountry(newCountry)
     }
   }
 
@@ -162,13 +151,14 @@ export default function Search() {
 
     if (searchThrottle) jobQueue.start()
 
-    ReactGA.event({
-      category: "search",
-      action: `search_${country}`,
-      label: searchTerm
-    })
-    // @ts-ignore umami is defined in the global scope via the umami script
-    window.umami.track(`search_${country}`, { searchTerm: searchTerm })
+    if (ReactGA.isInitialized) {
+      ReactGA.event({
+        category: "search",
+        action: `search_${country}`,
+        label: searchTerm
+      })
+    }
+    window.umami?.track(`search_${country}`, { searchTerm: searchTerm })
     
   }, [device, searchTerm, country, countriesData, sortBy, itemCondition, availability, daysSinceListed, minPrice, maxPrice, deliveryMethod, searchThrottle])
 

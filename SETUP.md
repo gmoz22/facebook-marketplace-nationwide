@@ -1,27 +1,37 @@
 ## Project Setup
 
+### Run the existing app
 
-### Create a Next.js app using the [ShadCN Next.js template](https://github.com/shadcn/next-template)
-```
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+Use Node.js 20.9 or newer (Node.js 22 LTS is recommended) and npm.
+The app uses Next.js 16.4.2, React 19, TypeScript 5, and Tailwind CSS 3.
 
-### Install [Radix UI](https://www.radix-ui.com/) components
-```
-npm i @radix-ui/react-hover-card
-npm i @radix-ui/react-popover
+```sh
+npm ci
+npm run dev
 ```
 
-### Install [ShadCN UI](https://ui.shadcn.com/docs/components/) components
-- button
-- hover-card
-- input
-- popover
+Copy any required analytics configuration into `.env.local` before building.
+Next.js loads environment files automatically. Analytics IDs and script URLs
+prefixed with `NEXT_PUBLIC_` are embedded at build time and must be public.
 
-### Setup Google Analytics 4
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npm start
 ```
-npm i react-ga4
-```
+
+The build uses Turbopack and exports the static site to `out/`.
+Deploy that directory to a static host. `npm start` serves an existing export;
+`npm run preview` builds and serves it. `next start` is not compatible with
+`output: "export"`.
+
+Linting uses the ESLint CLI and `eslint.config.mjs`; Next.js 16 no longer
+provides `next lint` or runs ESLint during builds. ESLint stays on version 9
+because the React plugin used by Next.js does not support ESLint 10 yet.
+
+
+### Analitycs
 
 In `.env`, add your GA4 ID
 ```
@@ -29,14 +39,9 @@ NEXT_PUBLIC_GA4_ANALYTICS_ID='YOUR_GA4_ID'
 ```
 _Alternatively, override the variable via `.env.$(NODE_ENV).local.`, `.env.local` or `.env.$(NODE_ENV)` files where `$(NODE_ENV) = development | production | test`_
 
-In `app/layout.tsx`:
-```
-import ReactGA from "react-ga4"
-```
-Under `RootLayout()` add:
-```
-ReactGA.initialize(process.env.NEXT_PUBLIC_GA4_ANALYTICS_ID);
-```
+GA4 is initialized once in the client-side `Analytics` component, after hydration. Leave the ID unset to run without GA4.
+
+Umami analytics uses `NEXT_PUBLIC_UMAMI_SCRIPT_URL` and `NEXT_PUBLIC_UMAMI_WEBSITE_ID`.
 
 ---
 
