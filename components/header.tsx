@@ -5,7 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Icons } from "@/components/icons";
 import {cn} from "@/lib/utils";
 
-export function SiteHeader() {
+export function Header() {
   return (
     <header className="absolute top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
